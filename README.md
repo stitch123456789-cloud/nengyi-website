@@ -10,3 +10,8 @@
 - `tools/diagnosis.html`：免費電費健檢診斷報告產生器（內部使用）
 
 客戶資料、電費單、合約請勿放進這個專案。
+
+## 更新流程
+
+1. Claude 把修改推到 `preview` 分支，Netlify 產生預覽網址 `preview--nengyi-energy.netlify.app`。
+2. S 確認後，合併到 `main`，正式網站自動更新。
