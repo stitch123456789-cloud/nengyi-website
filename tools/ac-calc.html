@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>空調節能計算工具</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f4f6f5; --card:#fff; --ink:#1c2826; --muted:#5f6f6b; --line:#dfe5e3;
+  --accent:#0f6e64; --accent-soft:#e3f1ee; --warn:#b4541a; --before:#c9d3d0; --after:#0f6e64;
+  --radius:12px;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans TC",system-ui,sans-serif;background:var(--bg);color:var(--ink);font-size:15px;line-height:1.55}
+.num,input[type=number]{font-variant-numeric:tabular-nums}
+header{background:var(--ink);color:#fff;padding:22px 28px 0}
+header h1{margin:0;font-size:22px;font-weight:700;letter-spacing:.5px}
+header p{margin:4px 0 16px;color:#b9c7c3;font-size:13.5px}
+.globals{display:flex;flex-wrap:wrap;gap:12px 22px;padding:12px 0 16px;border-top:1px solid #34423f}
+.globals label{display:flex;align-items:center;gap:8px;font-size:13px;color:#cfdad7}
+.globals input{width:92px;background:#26332f;border:1px solid #3d4d49;color:#fff;border-radius:6px;padding:5px 8px;font:inherit}
+.globals small{color:#8fa29d}
+nav{display:flex;gap:2px;overflow-x:auto}
+nav button{background:none;border:0;color:#b9c7c3;padding:11px 16px;font:inherit;font-size:14px;cursor:pointer;border-radius:8px 8px 0 0;white-space:nowrap}
+nav button:hover{color:#fff}
+nav button.on{background:var(--bg);color:var(--ink);font-weight:700}
+main{max-width:1240px;margin:0 auto;padding:24px 20px 60px}
+.intro{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:16px;flex-wrap:wrap}
+.intro h2{margin:0;font-size:19px}
+.intro p{margin:4px 0 0;color:var(--muted);font-size:13.5px;max-width:720px}
+.btn{background:var(--accent);color:#fff;border:0;border-radius:8px;padding:8px 14px;font:inherit;font-size:14px;cursor:pointer}
+.btn:hover{filter:brightness(1.1)}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--accent)}
+.btn.sm{padding:5px 10px;font-size:13px}
+.btn.del{background:transparent;color:var(--muted);border:1px solid var(--line)}
+.btn.del:hover{color:var(--warn);border-color:var(--warn)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);margin-bottom:18px;overflow:hidden}
+.card-head{display:flex;align-items:center;gap:10px;padding:12px 18px;border-bottom:1px solid var(--line);background:#fafcfb}
+.card-head input.name{flex:1;border:0;background:transparent;font:inherit;font-size:16px;font-weight:700;color:var(--ink);padding:4px 0}
+.card-head input.name:focus{outline:none;border-bottom:2px solid var(--accent)}
+.card-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:0}
+@media (max-width:900px){.card-body{grid-template-columns:1fr}}
+.fields{padding:16px 18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 14px;align-content:start;border-right:1px solid var(--line)}
+@media (max-width:520px){.fields{grid-template-columns:1fr}}
+.f label{display:block;font-size:12.5px;color:var(--muted);margin-bottom:3px}
+.f .box{display:flex;align-items:center;border:1px solid var(--line);border-radius:7px;background:#fff}
+.f .box:focus-within{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.f input,.f select{flex:1;min-width:0;border:0;background:transparent;font:inherit;padding:7px 9px;color:var(--ink)}
+.f input:focus,.f select:focus{outline:none}
+.f .u{font-size:12px;color:var(--muted);padding:0 9px;white-space:nowrap}
+.f .help{font-size:11.5px;color:#83928e;margin-top:2px}
+.results{padding:16px 18px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media (max-width:520px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--accent-soft);border-radius:9px;padding:10px 12px}
+.kpi.main{background:var(--accent);color:#fff}
+.kpi .k{font-size:12px;opacity:.8}
+.kpi .v{font-size:21px;font-weight:700;line-height:1.25}
+.kpi .v small{font-size:12px;font-weight:500;margin-left:3px;opacity:.85}
+.bars{margin:16px 0 4px}
+.bar-row{display:grid;grid-template-columns:56px 1fr 120px;align-items:center;gap:8px;margin:5px 0;font-size:12.5px;color:var(--muted)}
+.bar-track{height:14px;background:#eef2f1;border-radius:4px;overflow:hidden}
+.bar-fill{height:100%;border-radius:4px;transition:width .25s}
+.bar-row .num{text-align:right;color:var(--ink)}
+details{margin-top:12px;border-top:1px dashed var(--line);padding-top:10px}
+summary{cursor:pointer;font-size:13px;color:var(--accent);font-weight:500}
+.steps{font-family:"JetBrains Mono",monospace;font-size:12px;background:#f6f8f7;border-radius:8px;padding:10px 12px;margin-top:8px;line-height:1.8;white-space:pre-wrap;word-break:break-all}
+.report{font-size:13.5px;background:#fbfaf6;border-left:3px solid var(--accent);padding:10px 12px;margin-top:8px;border-radius:0 8px 8px 0}
+.actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+.warn{color:var(--warn);font-size:12.5px;margin-top:8px}
+.empty{text-align:center;color:var(--muted);padding:40px;border:2px dashed var(--line);border-radius:var(--radius)}
+table{width:100%;border-collapse:collapse;background:#fff;font-size:14px}
+th,td{padding:9px 12px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+th{background:#fafcfb;font-size:12.5px;color:var(--muted);font-weight:500}
+th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}
+tfoot td{font-weight:700;background:var(--accent-soft)}
+.tbl-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:var(--radius)}
+.sum-kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
+@media (max-width:800px){.sum-kpis{grid-template-columns:repeat(2,1fr)}}
+.share{margin-top:22px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px}
+.share h3{margin:0 0 10px;font-size:15px}
+.hbar{display:grid;grid-template-columns:200px 1fr 130px;gap:10px;align-items:center;font-size:13px;margin:6px 0}
+.hbar .lbl{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+@media (max-width:600px){.hbar{grid-template-columns:110px 1fr 90px}}
+.formula h3{font-size:16px;margin:22px 0 6px;color:var(--accent)}
+.formula .steps{font-size:13px}
+.formula p,.formula li{color:#34423f;font-size:14px}
+.toast{position:fixed;bottom:24px;left:50%;transform:translateX(-50%) translateY(20px);background:var(--ink);color:#fff;padding:9px 18px;border-radius:999px;font-size:13.5px;opacity:0;transition:.25s;pointer-events:none;z-index:9}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+#copyFallback{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:center;justify-content:center;z-index:10}
+#copyFallback .panel{background:#fff;border-radius:12px;padding:16px;width:min(720px,92vw)}
+#copyFallback textarea{width:100%;height:260px;font:12.5px "JetBrains Mono",monospace;border:1px solid var(--line);border-radius:8px;padding:8px}
+</style>
+</head>
+<body>
+<header>
+  <h1>空調節能計算工具</h1>
+  <p>冰水主機汰換 · 泵浦／風車變頻 · 冰水溫度重設 · 分離式冷氣汰換：節電量、抑低需量、節省金額、回收年限與減碳量</p>
+  <div class="globals">
+    <label>平均電價 <input id="g-price" type="number" step="0.01"> <small>元/kWh</small></label>
+    <label>需量電價 <input id="g-demand" type="number" step="0.1"> <small>元/kW·月（選填，0 = 不計）</small></label>
+    <label>電力排碳係數 <input id="g-ef" type="number" step="0.001"> <small>kgCO₂e/kWh（預設 113 年度值，請依能源署最新公告調整）</small></label>
+  </div>
+  <nav id="tabs"></nav>
+</header>
+<main id="main"></main>
+<div class="toast" id="toast"></div>
+<div id="copyFallback"><div class="panel"><p style="margin:0 0 8px;font-size:13.5px">瀏覽器不允許自動複製，請全選後手動複製（Ctrl/⌘ + C）：</p><textarea readonly></textarea><div style="text-align:right;margin-top:8px"><button class="btn sm" onclick="this.closest('#copyFallback').style.display='none'">關閉</button></div></div></div>
+
+<script>
+/* ---------- 格式化工具 ---------- */
+const fmt=(x,d=0)=>isFinite(x)?Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,maximumFractionDigits:d}):'—';
+const f0=x=>fmt(x,0), f1=x=>fmt(x,1), f2=x=>fmt(x,2), f3=x=>fmt(x,3);
+const pbText=r=>r.invest<=0?'免投資':(!isFinite(r.pb)||r.pb<0?'無法回收':f1(r.pb));
+
+/* ---------- 模組定義 ---------- */
+const MODS=[
+{
+  id:'chiller', name:'冰水主機汰換', short:'冰水主機',
+  desc:'以舊機實測效率（kW/RT）與新機效率比較。年節電量 = 冷凍能力 × 台數 × 平均負載率 × 年運轉時數 × 效率差。',
+  fields:[
+    {k:'rt',l:'冷凍能力',u:'RT',d:300,step:10},
+    {k:'n',l:'台數',u:'台',d:1,step:1},
+    {k:'oldEff',l:'改善前效率',u:'kW/RT',d:0.85,step:0.01,help:'舊機實測值'},
+    {k:'newEff',l:'改善後效率',u:'kW/RT',d:0.60,step:0.01,help:'新機規格／IPLV'},
+    {k:'load',l:'平均負載率',u:'%',d:70,step:1},
+    {k:'hours',l:'年運轉時數',u:'h/年',d:3000,step:100},
+    {k:'peak',l:'尖峰時段負載率',u:'%',d:90,step:1,help:'用於估算抑低需量'},
+    {k:'invest',l:'投資金額',u:'萬元',d:600,step:10},
+  ],
+  compute(v){
+    const cap=v.rt*v.n, diff=v.oldEff-v.newEff;
+    const before=cap*v.load/100*v.hours*v.oldEff, after=cap*v.load/100*v.hours*v.newEff;
+    const kwh=before-after, kw=cap*v.peak/100*diff;
+    const steps=
+`改善前年耗電 = ${f0(v.rt)} RT × ${v.n} 台 × ${v.load}% × ${f0(v.hours)} h × ${v.oldEff} kW/RT = ${f0(before)} kWh
+改善後年耗電 = ${f0(v.rt)} RT × ${v.n} 台 × ${v.load}% × ${f0(v.hours)} h × ${v.newEff} kW/RT = ${f0(after)} kWh
+年節電量     = ${f0(before)} − ${f0(after)} = ${f0(kwh)} kWh/年
+抑低需量     = ${f0(v.rt)} RT × ${v.n} 台 × ${v.peak}% × (${v.oldEff} − ${v.newEff}) = ${f1(kw)} kW
+COP 換算     : 改善前 ${f2(3.517/v.oldEff)}　改善後 ${f2(3.517/v.newEff)}（COP = 3.517 ÷ kW/RT）`;
+    const warn=diff<=0?'改善後效率未優於改善前，請檢查輸入。':'';
+    return {kwh,kw,before,after,steps,warn};
+  },
+  text(v,r){return `本案現有冰水主機 ${v.n} 台（單台 ${f0(v.rt)} RT），實測運轉效率約 ${v.oldEff} kW/RT，建議汰換為高效率冰水主機（${v.newEff} kW/RT）。以平均負載率 ${v.load}%、年運轉 ${f0(v.hours)} 小時估算，年節電量約 ${f0(r.kwh)} kWh，抑低需量約 ${f1(r.kw)} kW，年節省電費約 ${f2(r.money)} 萬元；投資金額約 ${f0(r.invest)} 萬元，投資回收年限約 ${pbText(r)} 年，年減碳量約 ${f2(r.co2)} 公噸CO₂e。`}
+},
+{
+  id:'vfd', name:'泵浦／風車變頻', short:'變頻',
+  desc:'依流體相似定律（立方比定律）：P₂ = P₁ × (f₂/f₁)ⁿ ÷ 變頻器效率。實務上系統有靜壓，指數 n 常取 2.5～3 以保守估算。',
+  fields:[
+    {k:'type',l:'設備類型',type:'select',d:'冷卻水塔風車',opts:['冰水泵','冷卻水泵','冷卻水塔風車','空調箱風機','其他']},
+    {k:'p',l:'改善前實測功率（單台）',u:'kW',d:15,step:0.5},
+    {k:'n',l:'台數',u:'台',d:2,step:1},
+    {k:'f1',l:'改善前頻率',u:'Hz',d:60,step:1},
+    {k:'f2',l:'改善後平均頻率',u:'Hz',d:45,step:1},
+    {k:'fpk',l:'尖峰時段頻率',u:'Hz',d:50,step:1,help:'用於估算抑低需量'},
+    {k:'exp',l:'相似定律指數 n',u:'',d:3,step:0.1,help:'理論值 3，保守 2.5～2.8'},
+    {k:'eta',l:'變頻器效率',u:'%',d:97,step:0.5},
+    {k:'hours',l:'年運轉時數',u:'h/年',d:4000,step:100},
+    {k:'invest',l:'投資金額',u:'萬元',d:20,step:1},
+  ],
+  compute(v){
+    const ratio=Math.pow(v.f2/v.f1,v.exp), ratioPk=Math.pow(v.fpk/v.f1,v.exp), e=v.eta/100;
+    const pAfter=v.p*ratio/e, pPk=v.p*ratioPk/e;
+    const before=v.p*v.n*v.hours, after=pAfter*v.n*v.hours;
+    const kwh=before-after, kw=(v.p-pPk)*v.n;
+    const steps=
+`改善後功率   = ${v.p} kW × (${v.f2}/${v.f1})^${v.exp} ÷ ${v.eta}% = ${f2(pAfter)} kW（${f1(pAfter/v.p*100)}%）
+改善前年耗電 = ${v.p} kW × ${v.n} 台 × ${f0(v.hours)} h = ${f0(before)} kWh
+改善後年耗電 = ${f2(pAfter)} kW × ${v.n} 台 × ${f0(v.hours)} h = ${f0(after)} kWh
+年節電量     = ${f0(before)} − ${f0(after)} = ${f0(kwh)} kWh/年
+抑低需量     = (${v.p} − ${v.p} × (${v.fpk}/${v.f1})^${v.exp} ÷ ${v.eta}%) × ${v.n} 台 = ${f1(kw)} kW`;
+    const warn=kwh<=0?'改善後耗電未降低，請檢查頻率設定。':(v.f2<30?'提醒：泵浦頻率過低可能不足以克服系統靜壓，請確認最低運轉頻率。':'');
+    return {kwh,kw,before,after,steps,warn};
+  },
+  text(v,r){return `本案${v.type} ${v.n} 台目前以定頻 ${v.f1} Hz 運轉，實測單台功率約 ${v.p} kW。建議加裝變頻器並依負載調整轉速，改善後平均頻率約 ${v.f2} Hz，依流體相似定律（指數 ${v.exp}）估算，年節電量約 ${f0(r.kwh)} kWh，抑低需量約 ${f1(r.kw)} kW，年節省電費約 ${f2(r.money)} 萬元；投資金額約 ${f0(r.invest)} 萬元，投資回收年限約 ${pbText(r)} 年，年減碳量約 ${f2(r.co2)} 公噸CO₂e。`}
+},
+{
+  id:'chwt', name:'冰水出水溫度重設', short:'冰水溫度',
+  desc:'冰水主機出水溫度每提高 1 °C，主機耗電約可降低 2～3%（依機型與冷卻水條件而異）。通常僅需控制設定調整，投資極低。',
+  fields:[
+    {k:'kw',l:'主機平均運轉功率（單台）',u:'kW',d:200,step:5},
+    {k:'n',l:'台數',u:'台',d:1,step:1},
+    {k:'hours',l:'年運轉時數',u:'h/年',d:3000,step:100},
+    {k:'t1',l:'改善前出水溫度',u:'°C',d:7,step:0.5},
+    {k:'t2',l:'改善後出水溫度',u:'°C',d:9,step:0.5},
+    {k:'rate',l:'每 1 °C 節能率',u:'%',d:2.5,step:0.1,help:'一般取 2～3%'},
+    {k:'pkw',l:'尖峰時段主機功率（單台）',u:'kW',d:240,step:5},
+    {k:'invest',l:'投資金額',u:'萬元',d:0,step:1,help:'僅調整設定可填 0'},
+  ],
+  compute(v){
+    const dt=v.t2-v.t1, pct=Math.min(dt*v.rate,100)/100;
+    const before=v.kw*v.n*v.hours, kwh=before*pct, after=before-kwh;
+    const kw=v.pkw*v.n*pct;
+    const steps=
+`溫升幅度     = ${v.t2} − ${v.t1} = ${f1(dt)} °C
+節能比例     = ${f1(dt)} °C × ${v.rate}% = ${f2(pct*100)}%
+改善前年耗電 = ${v.kw} kW × ${v.n} 台 × ${f0(v.hours)} h = ${f0(before)} kWh
+年節電量     = ${f0(before)} × ${f2(pct*100)}% = ${f0(kwh)} kWh/年
+抑低需量     = ${v.pkw} kW × ${v.n} 台 × ${f2(pct*100)}% = ${f1(kw)} kW`;
+    const warn=dt<=0?'改善後出水溫度應高於改善前。':(v.t2>10?'提醒：出水溫度過高可能影響除濕能力與末端空調箱能力，請確認室內溫濕度需求。':'');
+    return {kwh,kw,before,after,steps,warn};
+  },
+  text(v,r){return `本案冰水主機出水溫度目前設定 ${v.t1} °C，建議於部分負載或非尖峰時段提高至 ${v.t2} °C（提高 ${f1(v.t2-v.t1)} °C），以每提高 1 °C 節能 ${v.rate}% 估算，年節電量約 ${f0(r.kwh)} kWh，抑低需量約 ${f1(r.kw)} kW，年節省電費約 ${f2(r.money)} 萬元${r.invest>0?`；投資金額約 ${f0(r.invest)} 萬元，投資回收年限約 ${pbText(r)} 年`:'，僅需調整控制設定，無需投資'}，年減碳量約 ${f2(r.co2)} 公噸CO₂e。`}
+},
+{
+  id:'split', name:'分離式／窗型冷氣汰換', short:'分離式冷氣',
+  desc:'耗電功率 = 冷氣能力 ÷ 能源效率（EER 或 CSPF）。舊機多以 EER 計，新機以 CSPF 計時屬近似比較，建議以同一基準評估。',
+  fields:[
+    {k:'n',l:'台數',u:'台',d:10,step:1},
+    {k:'cap',l:'額定冷氣能力（單台）',u:'kW',d:7.1,step:0.1},
+    {k:'oldEff',l:'舊機能源效率',u:'EER/CSPF',d:2.8,step:0.1},
+    {k:'newEff',l:'新機能源效率',u:'CSPF',d:5.5,step:0.1},
+    {k:'load',l:'平均負載率',u:'%',d:60,step:1},
+    {k:'hours',l:'年運轉時數',u:'h/年',d:2500,step:100},
+    {k:'peak',l:'尖峰時段負載率',u:'%',d:100,step:1},
+    {k:'unit',l:'每台汰換費用',u:'萬元',d:4.5,step:0.1},
+  ],
+  invest:v=>v.n*v.unit,
+  compute(v){
+    const pOld=v.cap/v.oldEff, pNew=v.cap/v.newEff;
+    const before=v.n*pOld*v.load/100*v.hours, after=v.n*pNew*v.load/100*v.hours;
+    const kwh=before-after, kw=v.n*(pOld-pNew)*v.peak/100;
+    const steps=
+`舊機額定耗電 = ${v.cap} kW ÷ ${v.oldEff} = ${f2(pOld)} kW/台
+新機額定耗電 = ${v.cap} kW ÷ ${v.newEff} = ${f2(pNew)} kW/台
+改善前年耗電 = ${f2(pOld)} × ${v.n} 台 × ${v.load}% × ${f0(v.hours)} h = ${f0(before)} kWh
+改善後年耗電 = ${f2(pNew)} × ${v.n} 台 × ${v.load}% × ${f0(v.hours)} h = ${f0(after)} kWh
+年節電量     = ${f0(kwh)} kWh/年
+抑低需量     = (${f2(pOld)} − ${f2(pNew)}) × ${v.n} 台 × ${v.peak}% = ${f1(kw)} kW
+投資金額     = ${v.n} 台 × ${v.unit} 萬元 = ${f1(v.n*v.unit)} 萬元`;
+    const warn=v.newEff<=v.oldEff?'新機效率未優於舊機，請檢查輸入。':'';
+    return {kwh,kw,before,after,steps,warn};
+  },
+  text(v,r){return `本案現有分離式／窗型冷氣 ${v.n} 台（單台 ${v.cap} kW），能源效率約 ${v.oldEff}，建議汰換為一級能效變頻機種（CSPF ${v.newEff}）。以平均負載率 ${v.load}%、年運轉 ${f0(v.hours)} 小時估算，年節電量約 ${f0(r.kwh)} kWh，抑低需量約 ${f1(r.kw)} kW，年節省電費約 ${f2(r.money)} 萬元；投資金額約 ${f1(r.invest)} 萬元，投資回收年限約 ${pbText(r)} 年，年減碳量約 ${f2(r.co2)} 公噸CO₂e。`}
+},
+];
+const MODMAP=Object.fromEntries(MODS.map(m=>[m.id,m]));
+
+/* ---------- 狀態 ---------- */
+const KEY='ac-saving-v1';
+const uid=()=>Math.random().toString(36).slice(2,9);
+const defaults=m=>Object.fromEntries(m.fields.map(f=>[f.k,f.d]));
+function freshState(){
+  const s={g:{price:4.0,demand:0,ef:0.474},items:{}};
+  MODS.forEach(m=>s.items[m.id]=[{id:uid(),name:m.short+' 改善案 1',v:defaults(m)}]);
+  return s;
+}
+let S;
+try{S=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+if(!S||!S.g||!S.items) S=freshState();
+MODS.forEach(m=>{ if(!S.items[m.id]) S.items[m.id]=[]; S.items[m.id].forEach(it=>it.v={...defaults(m),...it.v}); });
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}}
+
+function evalItem(m,it){
+  const v=it.v, r=m.compute(v);
+  const invest=m.invest?m.invest(v):(+v.invest||0);
+  const money=(r.kwh*S.g.price + r.kw*S.g.demand*12)/10000;
+  const pb=invest<=0?0:(money>0?invest/money:Infinity);
+  const co2=r.kwh*S.g.ef/1000;
+  return {...r,invest,money,pb,co2};
+}
+
+/* ---------- 版面 ---------- */
+const TABS=[...MODS.map(m=>({id:m.id,name:m.name})),{id:'summary',name:'彙總'},{id:'formulas',name:'公式說明'}];
+const tabsEl=document.getElementById('tabs'), main=document.getElementById('main');
+tabsEl.innerHTML=TABS.map(t=>`<button data-t="${t.id}">${t.name}</button>`).join('');
+tabsEl.onclick=e=>{const b=e.target.closest('button'); if(b) location.hash=b.dataset.t;};
+function current(){const h=location.hash.slice(1); return TABS.some(t=>t.id===h)?h:'chiller';}
+function show(){
+  const t=current();
+  tabsEl.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));
+  if(MODMAP[t]) renderModule(MODMAP[t]); else if(t==='summary') renderSummary(); else renderFormulas();
+}
+window.addEventListener('hashchange',show);
+
+/* 全域參數 */
+[['g-price','price'],['g-demand','demand'],['g-ef','ef']].forEach(([id,k])=>{
+  const el=document.getElementById(id); el.value=S.g[k];
+  el.addEventListener('input',()=>{S.g[k]=parseFloat(el.value)||0; save(); refreshAll();});
+});
+function refreshAll(){
+  const t=current();
+  if(MODMAP[t]) main.querySelectorAll('.card').forEach(c=>updateCard(c));
+  else if(t==='summary') renderSummary();
+}
+
+/* 模組頁 */
+function renderModule(m){
+  const items=S.items[m.id];
+  main.innerHTML=`<div class="intro"><div><h2>${m.name}</h2><p>${m.desc}</p></div>
+    <button class="btn" id="addBtn">＋ 新增改善項目</button></div>
+    <div id="cards"></div>`;
+  const wrap=document.getElementById('cards');
+  if(!items.length) wrap.innerHTML=`<div class="empty">尚無項目，按「新增改善項目」開始計算。</div>`;
+  items.forEach(it=>wrap.appendChild(buildCard(m,it)));
+  document.getElementById('addBtn').onclick=()=>{
+    const last=items[items.length-1];
+    items.push({id:uid(),name:`${m.short} 改善案 ${items.length+1}`,v:last?{...last.v}:defaults(m)});
+    save(); renderModule(m);
+    main.querySelector('.card:last-child')?.scrollIntoView({behavior:'smooth',block:'start'});
+  };
+}
+function fieldHTML(f,val){
+  if(f.type==='select') return `<div class="f"><label>${f.l}</label><div class="box"><select data-k="${f.k}">${f.opts.map(o=>`<option${o===val?' selected':''}>${o}</option>`).join('')}</select></div></div>`;
+  return `<div class="f"><label>${f.l}</label><div class="box"><input type="number" data-k="${f.k}" value="${val}" step="${f.step||'any'}">${f.u?`<span class="u">${f.u}</span>`:''}</div>${f.help?`<div class="help">${f.help}</div>`:''}</div>`;
+}
+function buildCard(m,it){
+  const c=document.createElement('div'); c.className='card'; c.dataset.mod=m.id; c.dataset.id=it.id;
+  c.innerHTML=`<div class="card-head"><input class="name" value="${it.name.replace(/"/g,'&quot;')}"><button class="btn sm del">刪除</button></div>
+  <div class="card-body"><div class="fields">${m.fields.map(f=>fieldHTML(f,it.v[f.k])).join('')}</div>
+  <div class="results">
+    <div class="kpis">
+      <div class="kpi main"><div class="k">年節電量</div><div class="v" data-r="kwh"></div></div>
+      <div class="kpi"><div class="k">抑低需量</div><div class="v" data-r="kw"></div></div>
+      <div class="kpi"><div class="k">年節省金額</div><div class="v" data-r="money"></div></div>
+      <div class="kpi"><div class="k">投資金額</div><div class="v" data-r="invest"></div></div>
+      <div class="kpi"><div class="k">回收年限</div><div class="v" data-r="pb"></div></div>
+      <div class="kpi"><div class="k">年減碳量</div><div class="v" data-r="co2"></div></div>
+    </div>
+    <div class="bars">
+      <div class="bar-row"><span>改善前</span><div class="bar-track"><div class="bar-fill" data-b="before" style="background:var(--before)"></div></div><span class="num" data-r="before"></span></div>
+      <div class="bar-row"><span>改善後</span><div class="bar-track"><div class="bar-fill" data-b="after" style="background:var(--after)"></div></div><span class="num" data-r="after"></span></div>
+    </div>
+    <div class="warn" data-r="warn"></div>
+    <details><summary>計算過程</summary><div class="steps" data-r="steps"></div></details>
+    <details open><summary>報告文字（可直接貼入節能診斷報告）</summary><div class="report" data-r="text"></div></details>
+    <div class="actions"><button class="btn sm ghost" data-copy="text">複製報告文字</button><button class="btn sm ghost" data-copy="steps">複製計算過程</button></div>
+  </div></div>`;
+  c.querySelector('.name').addEventListener('input',e=>{it.name=e.target.value; save();});
+  c.querySelectorAll('[data-k]').forEach(el=>el.addEventListener('input',()=>{
+    const f=m.fields.find(x=>x.k===el.dataset.k);
+    it.v[f.k]=f.type==='select'?el.value:(parseFloat(el.value)||0); save(); updateCard(c);
+  }));
+  c.querySelector('.del').onclick=()=>{
+    const arr=S.items[m.id]; arr.splice(arr.findIndex(x=>x.id===it.id),1); save(); renderModule(m); toast('已刪除');
+  };
+  c.querySelectorAll('[data-copy]').forEach(b=>b.onclick=()=>copy(c.querySelector(`[data-r="${b.dataset.copy}"]`).textContent));
+  updateCard(c); return c;
+}
+function updateCard(c){
+  const m=MODMAP[c.dataset.mod], it=S.items[m.id].find(x=>x.id===c.dataset.id); if(!it) return;
+  const r=evalItem(m,it), q=k=>c.querySelector(`[data-r="${k}"]`);
+  q('kwh').innerHTML=`${f0(r.kwh)}<small>kWh/年</small>`;
+  q('kw').innerHTML=`${f1(r.kw)}<small>kW</small>`;
+  q('money').innerHTML=`${f2(r.money)}<small>萬元/年</small>`;
+  q('invest').innerHTML=`${fmt(r.invest,1)}<small>萬元</small>`;
+  q('pb').innerHTML=`${pbText(r)}${r.invest>0&&isFinite(r.pb)&&r.pb>=0?'<small>年</small>':''}`;
+  q('co2').innerHTML=`${f2(r.co2)}<small>tCO₂e/年</small>`;
+  q('before').textContent=f0(r.before)+' kWh'; q('after').textContent=f0(r.after)+' kWh';
+  const mx=Math.max(r.before,r.after,1);
+  c.querySelector('[data-b="before"]').style.width=Math.max(0,r.before/mx*100)+'%';
+  c.querySelector('[data-b="after"]').style.width=Math.max(0,r.after/mx*100)+'%';
+  q('warn').textContent=r.warn||'';
+  q('steps').textContent=r.steps+(S.g.demand>0?`\n年節省金額   = (${f0(r.kwh)} kWh × ${S.g.price} + ${f1(r.kw)} kW × ${S.g.demand} × 12) ÷ 10,000 = ${f2(r.money)} 萬元`:`\n年節省金額   = ${f0(r.kwh)} kWh × ${S.g.price} 元 ÷ 10,000 = ${f2(r.money)} 萬元`)+`\n年減碳量     = ${f0(r.kwh)} kWh × ${S.g.ef} ÷ 1,000 = ${f2(r.co2)} 公噸CO₂e`;
+  q('text').textContent=m.text(it.v,r);
+}
+
+/* 彙總頁 */
+function allRows(){
+  const rows=[];
+  MODS.forEach(m=>S.items[m.id].forEach(it=>rows.push({m,it,r:evalItem(m,it)})));
+  return rows;
+}
+function renderSummary(){
+  const rows=allRows();
+  const T=rows.reduce((a,x)=>({kwh:a.kwh+x.r.kwh,kw:a.kw+x.r.kw,money:a.money+x.r.money,invest:a.invest+x.r.invest,co2:a.co2+x.r.co2}),{kwh:0,kw:0,money:0,invest:0,co2:0});
+  T.pb=T.invest<=0?0:(T.money>0?T.invest/T.money:Infinity);
+  const mx=Math.max(...rows.map(x=>x.r.kwh),1);
+  main.innerHTML=`<div class="intro"><div><h2>節能改善彙總</h2><p>彙整各分頁所有改善項目。修改全域電價或排碳係數後，所有結果會同步更新。</p></div>
+    <div class="actions" style="margin:0"><button class="btn ghost" id="cpTbl">複製表格（貼到 Excel／Word）</button><button class="btn" id="cpTxt">複製全部報告文字</button></div></div>
+  ${rows.length?`
+  <div class="sum-kpis">
+    <div class="kpi main"><div class="k">總年節電量</div><div class="v">${f0(T.kwh)}<small>kWh/年</small></div></div>
+    <div class="kpi"><div class="k">總抑低需量</div><div class="v">${f1(T.kw)}<small>kW</small></div></div>
+    <div class="kpi"><div class="k">總年節省金額</div><div class="v">${f2(T.money)}<small>萬元/年</small></div></div>
+    <div class="kpi"><div class="k">總投資／整體回收</div><div class="v">${fmt(T.invest,1)}<small>萬元</small> · ${pbText(T)}${T.invest>0&&isFinite(T.pb)?'<small>年</small>':''}</div></div>
+    <div class="kpi"><div class="k">總年減碳量</div><div class="v">${f2(T.co2)}<small>tCO₂e/年</small></div></div>
+  </div>
+  <div class="tbl-wrap"><table>
+    <thead><tr><th>類別</th><th>改善項目</th><th>年節電量 (kWh)</th><th>抑低需量 (kW)</th><th>年節省 (萬元)</th><th>投資 (萬元)</th><th>回收年限 (年)</th><th>年減碳 (tCO₂e)</th></tr></thead>
+    <tbody>${rows.map(x=>`<tr><td>${x.m.short}</td><td>${esc(x.it.name)}</td><td>${f0(x.r.kwh)}</td><td>${f1(x.r.kw)}</td><td>${f2(x.r.money)}</td><td>${fmt(x.r.invest,1)}</td><td>${pbText(x.r)}</td><td>${f2(x.r.co2)}</td></tr>`).join('')}</tbody>
+    <tfoot><tr><td>合計</td><td>${rows.length} 項</td><td>${f0(T.kwh)}</td><td>${f1(T.kw)}</td><td>${f2(T.money)}</td><td>${fmt(T.invest,1)}</td><td>${pbText(T)}</td><td>${f2(T.co2)}</td></tr></tfoot>
+  </table></div>
+  <div class="share"><h3>各項目年節電量</h3>
+    ${rows.slice().sort((a,b)=>b.r.kwh-a.r.kwh).map(x=>`<div class="hbar"><span class="lbl" title="${esc(x.it.name)}">${esc(x.it.name)}</span><div class="bar-track"><div class="bar-fill" style="width:${Math.max(0,x.r.kwh/mx*100)}%;background:var(--accent)"></div></div><span class="num" style="text-align:right">${f0(x.r.kwh)} kWh${T.kwh>0?` · ${f1(x.r.kwh/T.kwh*100)}%`:''}</span></div>`).join('')}
+  </div>`:`<div class="empty">尚無任何改善項目。</div>`}
+  <div style="margin-top:20px;text-align:right"><button class="btn sm del" id="reset">清除所有資料、恢復預設值</button></div>`;
+  const cpT=document.getElementById('cpTbl'), cpX=document.getElementById('cpTxt');
+  if(cpT) cpT.onclick=()=>{
+    const head=['類別','改善項目','年節電量(kWh)','抑低需量(kW)','年節省(萬元)','投資(萬元)','回收年限(年)','年減碳(tCO2e)'];
+    const lines=[head.join('\t'),...rows.map(x=>[x.m.short,x.it.name,x.r.kwh.toFixed(0),x.r.kw.toFixed(1),x.r.money.toFixed(2),x.r.invest.toFixed(1),pbText(x.r),x.r.co2.toFixed(2)].join('\t')),
+      ['合計',rows.length+'項',T.kwh.toFixed(0),T.kw.toFixed(1),T.money.toFixed(2),T.invest.toFixed(1),pbText(T),T.co2.toFixed(2)].join('\t')];
+    copy(lines.join('\n'));
+  };
+  if(cpX) cpX.onclick=()=>copy(rows.map((x,i)=>`${i+1}. ${x.it.name}\n${x.m.text(x.it.v,x.r)}`).join('\n\n')+`\n\n合計：年節電量約 ${f0(T.kwh)} kWh，抑低需量約 ${f1(T.kw)} kW，年節省電費約 ${f2(T.money)} 萬元，總投資約 ${fmt(T.invest,1)} 萬元，整體回收年限約 ${pbText(T)} 年，年減碳量約 ${f2(T.co2)} 公噸CO₂e。`);
+  const rs=document.getElementById('reset'); let armed=false;
+  rs.onclick=()=>{ if(!armed){armed=true; rs.textContent='再按一次確認清除'; rs.style.color='var(--warn)'; setTimeout(()=>{armed=false; rs.textContent='清除所有資料、恢復預設值'; rs.style.color='';},3000); return;}
+    S=freshState(); save(); ['price','demand','ef'].forEach(k=>document.getElementById('g-'+k).value=S.g[k]); renderSummary(); toast('已恢復預設值'); };
+}
+
+/* 公式頁 */
+function renderFormulas(){
+  main.innerHTML=`<div class="formula">
+  <div class="intro"><div><h2>公式說明與參數建議</h2><p>計算方式與常用假設，可作為報告附錄或審查說明。</p></div></div>
+  <h3>1. 冰水主機汰換</h3>
+  <div class="steps">年節電量 (kWh) = RT × 台數 × 平均負載率 × 年運轉時數 × (改善前 kW/RT − 改善後 kW/RT)
+抑低需量 (kW)  = RT × 台數 × 尖峰負載率 × (改善前 kW/RT − 改善後 kW/RT)
+COP = 3.517 ÷ (kW/RT)　　1 RT = 3.517 kW 冷凍能力</div>
+  <p>改善前效率建議以實測冰水流量、進出水溫差與主機輸入功率推算；改善後效率可採新機 IPLV 或部分負載效率，以更接近實際運轉。</p>
+  <h3>2. 泵浦／風車變頻（流體相似定律）</h3>
+  <div class="steps">流量 Q₂/Q₁ = (N₂/N₁)　　揚程 H₂/H₁ = (N₂/N₁)²　　功率 P₂/P₁ = (N₂/N₁)³
+改善後功率 = 改善前功率 × (f₂/f₁)ⁿ ÷ 變頻器效率
+年節電量 = (改善前功率 − 改善後功率) × 台數 × 年運轉時數</div>
+  <ul><li>冷卻水塔風車、空調箱風機系統靜壓低，可採 n = 3。</li><li>冰水／冷卻水泵有管路靜壓與最低壓差控制，建議 n 取 2.5～2.8 或以實測修正。</li><li>泵浦最低頻率一般設定 30～35 Hz 以上。</li></ul>
+  <h3>3. 冰水出水溫度重設</h3>
+  <div class="steps">年節電量 = 主機年耗電 × 溫升 (°C) × 每°C 節能率</div>
+  <p>每提高 1 °C 約節能 2～3%，實際依主機型式與冷卻水溫度條件而異。需注意除濕需求與末端空調箱能力是否足夠。</p>
+  <h3>4. 分離式／窗型冷氣汰換</h3>
+  <div class="steps">耗電功率 (kW) = 冷氣能力 (kW) ÷ 能源效率（EER 或 CSPF）
+年節電量 = 台數 × 冷氣能力 × 負載率 × 年運轉時數 × (1/舊機效率 − 1/新機效率)</div>
+  <p>CSPF 為季節性能指標，舊機若只有 EER，與新機 CSPF 比較會略為高估節能量，報告中可註明為近似估算。</p>
+  <h3>5. 經濟效益與減碳</h3>
+  <div class="steps">年節省金額 (萬元) = (年節電量 × 平均電價 + 抑低需量 × 需量電價 × 12) ÷ 10,000
+投資回收年限 (年) = 投資金額 ÷ 年節省金額
+年減碳量 (公噸CO₂e) = 年節電量 × 電力排碳係數 ÷ 1,000</div>
+  <p>電力排碳係數預設 0.474 kgCO₂e/kWh（113 年度），請依經濟部能源署每年公告之最新數值調整。需量電價請依用戶適用之台電契約容量費率填入，不計需量效益時填 0。</p>
+  </div>`;
+}
+
+/* ---------- 工具 ---------- */
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+let tt; function toast(msg){const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show'); clearTimeout(tt); tt=setTimeout(()=>t.classList.remove('show'),1800);}
+async function copy(text){
+  try{ await navigator.clipboard.writeText(text); toast('已複製'); }
+  catch(e){ const fb=document.getElementById('copyFallback'); const ta=fb.querySelector('textarea'); ta.value=text; fb.style.display='flex'; ta.focus(); ta.select(); }
+}
+
+show();
+</script>
+</body>
+</html>
