@@ -302,6 +302,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
     <a class="brand" href="#top" aria-label="能溢有限公司 回到頂端"><img src="assets/logo-horizontal-white.svg" alt="能溢有限公司" width="114" height="40"></a>
     <ul>
       <li><a href="#model">0 元方案</a></li>
+      <li><a href="small.html">小店家方案</a></li>
       <li><a href="solution.html">產業方案</a></li>
       <li><a href="#solutions">核心技術</a></li>
       <li><a href="#cases">案例</a></li>
@@ -587,7 +588,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
       <div><b>運轉時數</b><span class="num">10 小時+</span><p>空調每日平均運轉時數</p></div>
       <div><b>場域穩定</b><span class="num">3 年+</span><p>自有產權，或剩餘租約 3 年以上</p></div>
     </div>
-    <p class="tip">月電費未達 20 萬元？我們另有「低月費 AI 監控訂閱」與「政府節能補助代辦」方案，填表後由專人為您規劃。</p>
+    <p class="tip">月電費未達 20 萬元？請看<a href="small.html" style="color:var(--navy);font-weight:700">小店家方案</a>：0 元安裝電力分析儀，代辦契約容量與電價調整。</p>
   </div>
 </section>
 
@@ -795,7 +796,7 @@ const fmt=(x,d=0)=>Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,max
     $('oCo2').textContent=fmt(co2,0)+' 公噸';
     const t=$('oTier');
     if(b>=20){t.className='tier vip';t.textContent='符合 0 元全額出資的用電規模，可優先安排工程師評估。';}
-    else{t.className='tier std';t.textContent='月電費未達 20 萬元，建議了解「低月費 AI 監控訂閱」或「政府節能補助代辦」方案。';}
+    else{t.className='tier std';t.textContent='月電費未達 20 萬元，適合「小店家方案」：0 元安裝電力分析儀，代辦契約容量與電價調整。';}
   }
   [ind,bill].forEach(el=>el.addEventListener('input',calc));
   calc();
@@ -815,7 +816,7 @@ const fmt=(x,d=0)=>Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,max
     const v=e.target.value; let tag,msg,cls;
     if(v==='100萬以上'){tag='S級-百萬以上';cls='vip';msg='您的用電規模符合 0 元專案優先資格，我們會優先安排工程師聯繫。';}
     else if(v==='20–50萬'||v==='50–100萬'){tag='A級-20~100萬';cls='vip';msg='您的用電規模符合 0 元專案資格，我們會優先安排工程師聯繫。';}
-    else{tag='B級-20萬以下';cls='std';msg='我們會為您規劃「低月費 AI 監控訂閱」或「政府節能補助代辦」方案。';}
+    else{tag='B級-20萬以下';cls='std';msg='您的用電規模適合「小店家方案」，我們會為您安排免費健檢。';}
     field.value=tag; tierEl.className='form-tier full show '+cls; tierEl.textContent=msg;
   });
   const f=document.getElementById('fFile'), n=document.getElementById('fFileName');
