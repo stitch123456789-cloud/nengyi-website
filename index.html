@@ -49,7 +49,7 @@ section{padding:96px 0}
 .btn-sm{padding:9px 16px;font-size:14.5px;border-radius:8px}
 
 /* nav */
-.nav{position:sticky;top:0;z-index:50;background:rgba(15,41,66,.97);backdrop-filter:blur(6px);color:#fff}
+.nav{position:sticky;top:0;z-index:50;background:#0B192C;color:#fff}
 .nav .wrap{display:flex;align-items:center;gap:28px;height:64px}
 .brand{display:flex;align-items:center;text-decoration:none;color:#fff}
 .brand img{display:block;height:40px;width:auto}
@@ -409,6 +409,7 @@ h1,h2,h3{letter-spacing:0;word-break:keep-all;overflow-wrap:anywhere}
 
 <!-- 能溢有限公司官網。產業頁在 solution.html，Logo 檔在 assets/。 -->
 
+<div class="scroll-progress" aria-hidden="true"></div>
 <nav class="nav" aria-label="主選單">
   <div class="wrap">
     <a class="brand" href="#top" aria-label="能溢有限公司 回到頂端"><img src="assets/logo-horizontal-white.svg" alt="能溢有限公司" width="114" height="40"></a>
@@ -428,7 +429,7 @@ h1,h2,h3{letter-spacing:0;word-break:keep-all;overflow-wrap:anywhere}
 <header class="hero" id="top">
   <div class="wrap">
     <div class="hero-grid">
-      <div>
+      <div class="hero-copy">
         <span class="hero-tag">專為高耗電企業打造的零出資 ESCO 智慧節能方案</span>
         <h1>企業 0 元出資，<br>AI 幫您把空調電費<br>直接砍掉 <span class="cut">15–30%</span></h1>
         <p class="sub">我們全額出資建置 AI 智慧監控、空調最佳化設備與契約容量調控系統。您不用動用一毛資本預算，只從「實際省下的電費」中按比例分潤。沒省到電，一毛不收。</p>
@@ -886,7 +887,6 @@ h1,h2,h3{letter-spacing:0;word-break:keep-all;overflow-wrap:anywhere}
 
 <script src="assets/vendor/gsap.min.js"></script>
 <script src="assets/vendor/ScrollTrigger.min.js"></script>
-<script src="assets/vendor/lenis.min.js"></script>
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -930,14 +930,7 @@ const fmt=(x,d=0)=>Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,max
     .to(lab,{attr:{opacity:1},duration:.3},'-=.2');
 })();
 
-/* ---------- Lenis 平滑捲動：只在有滑鼠的電腦上啟用 ---------- */
-(function(){
-  if(reduce||!window.Lenis||!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
-  const lenis=new Lenis({duration:1.05,smoothWheel:true});
-  if(window.gsap&&window.ScrollTrigger){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);}
-  else{const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf);}
-  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length<2)return;const el=document.querySelector(id);if(!el)return;e.preventDefault();lenis.scrollTo(el,{offset:-76});history.replaceState(null,'',id);}));
-})();
+
 
 /* ---------- 數字滾動 ---------- */
 (function(){

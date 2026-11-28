@@ -14,3 +14,8 @@
   .reveal{opacity:1!important;transform:none!important}
   svg .draw{stroke-dashoffset:0!important}
 }
+
+/* GSAP 接手時關掉 CSS 過場，避免兩邊打架 */
+.gsap-on .reveal{transition:none}
+.scroll-progress{position:fixed;top:0;left:0;right:0;height:3px;background:#00C853;transform:scaleX(0);transform-origin:left;z-index:60;pointer-events:none}
+.motion-off .scroll-progress{display:none}
