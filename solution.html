@@ -2,7 +2,8 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B192C">
 <title>產業節能解決方案｜能溢有限公司</title>
 <meta name="description" content="能溢有限公司依產業提供 0 元 ESCO 空調節能方案：製造工廠、商辦大樓、飯店旅宿、醫院長照、連鎖零售與冷鏈。">
 <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
@@ -10,9 +11,9 @@
 <meta property="og:image" content="/assets/logo-icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Barlow:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0F2942;--navy-3:#0a1d30;--green:#10B981;--green-soft:#e7f8f1;--amber:#F59E0B;--bg:#F8FAFC;--ink:#334155;--muted:#64748b;--line:#e2e8f0;--red:#e2554a}
+:root{--navy:#0B192C;--navy-3:#0a1d30;--green:#00C853;--green-soft:#e7f8f1;--amber:#F59E0B;--bg:#F8FAFC;--ink:#334155;--muted:#64748b;--line:#e2e8f0;--red:#e2554a}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -22,14 +23,14 @@ h2{font-size:clamp(26px,3.2vw,36px);font-weight:900}
 h3{font-size:18px}
 p{margin:0}
 a{color:inherit}
-.num{font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums}
+.num{font-family:"Barlow","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 section{padding:88px 0}
 @media (max-width:720px){section{padding:60px 0}}
 .lede{font-size:17px;color:var(--muted);max-width:660px;margin-top:12px}
 :focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
 .btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:700;font-size:16px;padding:14px 24px;border-radius:10px;border:2px solid transparent;text-decoration:none;cursor:pointer}
-.btn:hover{filter:brightness(1.06)}
+
 .btn-amber{background:var(--amber);color:#1f1300}
 .btn-line{color:#fff;border-color:rgba(255,255,255,.55)}
 .btn-sm{padding:9px 16px;font-size:14.5px;border-radius:8px}
@@ -39,17 +40,17 @@ section{padding:88px 0}
 .brand{display:flex;align-items:center;text-decoration:none}
 .brand img{display:block;height:40px;width:auto}
 .brand b{font-size:19px;font-weight:900;line-height:1.1;display:block}
-.brand small{display:block;font-family:"Barlow Condensed";font-size:12px;letter-spacing:.08em;color:#94a8bd;line-height:1}
+.brand small{display:block;font-family:"Barlow";font-size:12px;letter-spacing:.08em;color:#94a8bd;line-height:1}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0}
 .nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;font-size:15px;color:#cbd5e1}
-.nav ul a:hover,.nav ul a[aria-current]{color:#fff;background:rgba(255,255,255,.08)}
+.nav ul a[aria-current]{color:#fff;background:rgba(255,255,255,.08)}
 @media (max-width:960px){.nav ul{display:none}.nav .btn-sm{margin-left:auto}}
 
 /* industry tabs */
 .tabs{background:var(--navy);border-top:1px solid #23466b}
 .tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
 .tabs a{flex:none;padding:9px 16px;border-radius:999px;text-decoration:none;color:#b6c4d4;font-size:15px;border:1px solid #23466b}
-.tabs a:hover{color:#fff}
+
 .tabs a[aria-current]{background:var(--green);border-color:var(--green);color:#03291c;font-weight:700}
 
 .hero{background:var(--navy);color:#b6c4d4;padding:64px 0 72px}
@@ -135,7 +136,43 @@ footer a{color:#cbd5e1;text-decoration:none}
 @media (min-width:761px){footer{padding-bottom:40px}}
 .mbar{display:none}
 @media (max-width:760px){.mbar{display:grid;grid-template-columns:1fr 1.3fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}.mbar a{display:flex;align-items:center;justify-content:center;border-radius:10px;padding:12px 8px;font-weight:700;font-size:15px;text-decoration:none}.mbar .l{background:var(--navy);color:#fff}.mbar .u{background:var(--amber);color:#1f1300}}
+
+@media (hover:hover) and (pointer:fine){
+.btn:hover{filter:brightness(1.06)}
+.nav ul a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.tabs a:hover{color:#fff}
+}
+
+/* ---- 手機原生感與按壓回饋 ---- */
+:root{--ease-out:cubic-bezier(0.23,1,0.32,1)}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+a,button,summary,label,[role="button"]{touch-action:manipulation}
+button,.btn,summary,.chips span,.mbar a{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,select,textarea{font-size:16px}
+.btn,.mbar a{transition:transform 140ms var(--ease-out),filter 140ms ease}
+.btn:active,.mbar a:active{transform:scale(0.97)}
+.ind,.drop,.case,.sol,.lv{transition:border-color 160ms ease}
+.ind:active{transform:scale(0.985)}
+.wrap{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+
+/* ---- 能溢品牌視覺（冷調科技）覆寫 ---- */
+.btn{gap:8px}
+:root{--navy:#0B192C;--navy-2:#1E293B;--navy-3:#081221;--green:#00875A;--green-soft:#E6F4EE;--amber:#00875A;--bg:#F4F7F9;--ink-strong:#0B192C}
+.btn-amber{background:#00875A;color:#fff}
+.mbar .u{background:#00875A!important;color:#fff!important}
+:focus-visible{outline-color:#00875A}
+.hero h1 .cut,.hero-tag,.pf b.good,.formula .eq b,.crumb{color:#00C853}
+.hero-tag{border-color:rgba(0,200,83,.45)}
+.seg-you{background:#00C853;color:#04230f}
+.money-points div{border-left-color:#00C853}
+.hero,.money,.apply,.calc-out,.dash-sec,.apply2{position:relative}
+.hero::after,.apply::after,.apply2::after{content:"";position:absolute;right:-160px;top:-180px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(0,191,165,.08),transparent 65%);pointer-events:none}
+.hero,.apply,.apply2{overflow:hidden}
+.hero>.wrap,.apply>.wrap,.apply2>.wrap{position:relative;z-index:1}
+h1,h2,h3{letter-spacing:0;word-break:keep-all;overflow-wrap:anywhere}
+@media (hover:hover) and (pointer:fine){.btn-amber:hover{background:#00704A;filter:none}}
 </style>
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 
@@ -145,6 +182,7 @@ footer a{color:#cbd5e1;text-decoration:none}
     <ul>
       <li><a href="index.html#model">0 元方案</a></li>
       <li><a href="small.html">小店家方案</a></li>
+      <li><a href="methods.html">節能方法</a></li>
       <li><a href="solution.html" aria-current="page">產業方案</a></li>
       <li><a href="index.html#cases">案例</a></li>
       <li><a href="index.html#calc">電費試算</a></li>
@@ -239,7 +277,7 @@ tabs.innerHTML=IND.map(d=>`<a href="#${d.id}">${esc(d.name)}</a>`).join('');
 /* 示意曲線（戰情室） */
 const spark=()=>{const a=[55,52,50,52,58,66,74,80,84,82,78,80,83,86,84,78,70,64,60,58];const W=600,H=150,mx=100;
   const pts=a.map((v,i)=>`${(i/(a.length-1)*W).toFixed(1)},${(H-v/mx*H).toFixed(1)}`).join(' ');
-  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><line x1="0" x2="${W}" y1="${H-90/mx*H}" y2="${H-90/mx*H}" stroke="#fff" stroke-dasharray="6 5" stroke-width="1.5" opacity=".7"/><polyline points="0,${H} ${pts} ${W},${H}" fill="rgba(16,185,129,.15)" stroke="none"/><polyline points="${pts}" fill="none" stroke="#10B981" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`;};
+  return `<svg viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><line x1="0" x2="${W}" y1="${H-90/mx*H}" y2="${H-90/mx*H}" stroke="#fff" stroke-dasharray="6 5" stroke-width="1.5" opacity=".7"/><polyline points="0,${H} ${pts} ${W},${H}" fill="rgba(16,185,129,.15)" stroke="none"/><polyline points="${pts}" fill="none" stroke="#00C853" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>`;};
 
 function render(){
   const id=location.hash.slice(1), d=IND.find(x=>x.id===id)||IND[0];
@@ -251,7 +289,7 @@ function render(){
       <p class="crumb">產業解決方案・${esc(d.name)}</p>
       <h1>${esc(d.h1).replace('\n','<br>')}</h1>
       <p class="sub">${esc(d.sub)}</p>
-      <div class="ctas"><a class="btn btn-amber" href="index.html#apply">預約 0 元專案資格評估</a><a class="btn btn-line" href="#arch">看系統怎麼運作</a></div>
+      <div class="ctas"><a class="btn btn-amber" href="index.html#apply">預約 0 元專案資格評估 <span class="arr">→</span></a><a class="btn btn-line" href="#arch">看系統怎麼運作</a></div>
     </div>
     <div class="facts">${d.facts.map(f=>`<div class="fact"><b class="num">${esc(f[0])}</b><span>${esc(f[1])}</span></div>`).join('')}</div>
   </div></div></header>
@@ -306,5 +344,6 @@ addEventListener('hashchange',()=>{render();scrollTo(0,0);});
 render();
 }
 </script>
+<script src="assets/motion.js"></script>
 </body>
 </html>

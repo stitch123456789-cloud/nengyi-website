@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B192C">
+<title>7 種節能方法與試算｜能溢有限公司</title>
+<meta name="description" content="契約容量、時間電價、變頻、冰水溫度重設、冰水主機汰換、LED、空壓機：7 種最常見的節能方法，附原理、公式、範例與線上試算。">
+<link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
+<link rel="apple-touch-icon" href="/assets/logo-icon-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Barlow:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/motion.css">
+<style>
+:root{
+  --bg:#FFFFFF;--bg-alt:#F4F7F9;--navy:#0B192C;--graphite:#1E293B;
+  --ink:#0B192C;--text:#334155;--muted:#64748B;
+  --line:rgba(15,23,42,.08);--line-dark:rgba(255,255,255,.10);
+  --action:#00875A;--action-hover:#00704A;--data:#00C853;--data-2:#00BFA5;--alert:#D14343;
+  --r:16px;--ease:cubic-bezier(.16,1,.3,1);
+}
+*{box-sizing:border-box;min-width:0}
+html{scroll-behavior:smooth;scroll-padding-top:120px;-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",sans-serif;color:var(--text);background:var(--bg);font-size:16.5px;line-height:1.75;overflow-x:clip}
+h1,h2,h3{color:var(--ink);margin:0;line-height:1.3;letter-spacing:0;word-break:keep-all;overflow-wrap:anywhere}
+p{margin:0}
+a{color:inherit}
+.num{font-family:"Barlow","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums;font-weight:600}
+.wrap{max-width:1240px;margin:0 auto;padding:0 max(24px,env(safe-area-inset-left))}
+section{padding:104px 0}
+@media (max-width:760px){section{padding:64px 0}}
+:focus-visible{outline:3px solid var(--action);outline-offset:2px;border-radius:4px}
+a,button,summary,label{touch-action:manipulation}
+button,.btn{-webkit-user-select:none;user-select:none}
+input,select{font-size:16px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:12px 22px;border-radius:10px;font:inherit;font-weight:700;text-decoration:none;border:1.5px solid transparent;cursor:pointer;transition:background-color 200ms ease,transform 140ms var(--ease)}
+.btn:active{transform:scale(.98)}
+.btn-go{background:var(--action);color:#fff}
+.btn-ghost{color:#fff;border-color:rgba(255,255,255,.35)}
+@media (hover:hover) and (pointer:fine){.btn-go:hover{background:var(--action-hover)}.btn-ghost:hover{border-color:#fff}}
+
+/* nav */
+.nav{position:sticky;top:0;z-index:50;background:rgba(11,25,44,.97);backdrop-filter:blur(6px)}
+.nav .wrap{display:flex;align-items:center;gap:24px;height:64px}
+.brand img{display:block;height:40px;width:auto}
+.nav ul{display:flex;gap:2px;list-style:none;margin:0 0 0 auto;padding:0}
+.nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;font-size:15px;color:#cbd5e1}
+.nav ul a[aria-current]{color:#fff;background:rgba(255,255,255,.08)}
+@media (hover:hover) and (pointer:fine){.nav ul a:hover{color:#fff;background:rgba(255,255,255,.08)}}
+.nav .btn{min-height:40px;padding:8px 16px;font-size:14.5px}
+@media (max-width:1000px){.nav ul{display:none}.nav .btn{margin-left:auto}}
+
+/* hero */
+.hero{background:var(--navy);color:#b6c4d4;padding:80px 0 88px;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-180px;top:-200px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(0,191,165,.09),transparent 65%);pointer-events:none}
+.hero h1{color:#fff;font-size:clamp(34px,4.6vw,54px);font-weight:700;max-width:820px}
+.hero .lede{font-size:18px;max-width:640px;margin-top:18px}
+
+/* bento overview */
+.bento{margin-top:48px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:minmax(150px,auto);gap:14px}
+.bx{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:10px;padding:20px 20px 18px;border-radius:var(--r);border:1px solid var(--line-dark);background:#0f2238;text-decoration:none;color:#b6c4d4}
+.bx b{color:#fff;font-size:18px;font-weight:700}
+.bx .k{font-size:30px;color:var(--data);line-height:1.1}
+.bx .k small{font-size:14px;color:#8aa0b8;font-family:"Noto Sans TC";font-weight:400;margin-left:4px}
+.bx span{font-size:14px}
+.bx.big{grid-column:span 2;grid-row:span 2;padding:26px}
+.bx.big .k{font-size:56px}
+.bx.wide{grid-column:span 2}
+.bx .tag{position:absolute;top:16px;right:16px;font-size:12.5px;color:#8aa0b8;border:1px solid var(--line-dark);border-radius:999px;padding:1px 9px}
+@media (hover:hover) and (pointer:fine){.bx{transition:transform 200ms var(--ease),border-color 200ms ease}.bx:hover{transform:translateY(-2px);border-color:rgba(0,191,165,.45)}}
+@media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.bx.big{grid-column:span 2;grid-row:auto}.bx.wide{grid-column:span 2}}
+@media (max-width:520px){.bento{grid-template-columns:1fr}.bx.big,.bx.wide{grid-column:auto}}
+.cube{display:flex;align-items:flex-end;gap:10px;height:96px;margin-top:6px}
+.cube i{flex:1;background:rgba(255,255,255,.12);border-radius:6px 6px 0 0;position:relative}
+.cube i.on{background:var(--data-2)}
+.cube i em{position:absolute;bottom:-22px;left:0;right:0;text-align:center;font-style:normal;font-size:12.5px;color:#8aa0b8}
+.motion-on .cube i{transform-origin:bottom;transform:scaleY(0);transition:transform 900ms var(--ease)}
+.motion-on .in .cube i,.motion-on .cube.in i{transform:scaleY(1)}
+
+/* assumptions bar */
+.assume{position:sticky;top:64px;z-index:40;background:#fff;border-bottom:1px solid var(--line)}
+.assume .wrap{display:flex;align-items:center;gap:18px;min-height:56px;flex-wrap:wrap;font-size:14.5px;color:var(--muted)}
+.assume label{display:flex;align-items:center;gap:8px}
+.assume input{width:86px;border:1px solid #cbd5e1;border-radius:8px;padding:6px 8px;color:var(--ink)}
+.assume .jump{margin-left:auto;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.assume .jump a{flex:none;text-decoration:none;font-size:14px;padding:5px 11px;border-radius:999px;border:1px solid var(--line);color:var(--text)}
+@media (max-width:900px){.assume .jump{display:none}}
+
+/* method section */
+.m{border-top:1px solid var(--line)}
+.m:nth-of-type(even){background:var(--bg-alt)}
+.m-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:start}
+@media (max-width:960px){.m-grid{grid-template-columns:1fr;gap:32px}}
+.m .idx{font-size:14px;color:var(--action);font-weight:700}
+.m h2{font-size:clamp(28px,3.2vw,38px);margin:6px 0 14px}
+.m .what{font-size:17px}
+.fit{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.fit span{font-size:13.5px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted);background:#fff}
+.block{margin-top:26px}
+.block h3{font-size:17px;margin-bottom:8px}
+.formula{font-family:"Barlow","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums;background:var(--navy);color:#e2e8f0;border-radius:12px;padding:14px 18px;font-size:16px;line-height:1.7}
+.formula b{color:var(--data);font-weight:600}
+.example{font-size:15.5px;border-left:3px solid var(--action);padding-left:14px}
+.caveat{font-size:14px;color:var(--muted);margin-top:12px}
+
+/* calculator card */
+.calc{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;box-shadow:0 1px 2px rgba(15,23,42,.04)}
+.calc h3{font-size:18px;margin-bottom:4px}
+.calc .sub{font-size:14px;color:var(--muted);margin-bottom:18px}
+.f{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 14px;margin-bottom:14px}
+.f label{font-size:15px;color:var(--ink);font-weight:500}
+.f output{font-family:"Barlow";font-weight:600;font-variant-numeric:tabular-nums;color:var(--ink);font-size:17px;white-space:nowrap}
+.f input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--action);height:28px}
+.f input[type=number],.f select{width:120px;border:1px solid #cbd5e1;border-radius:8px;padding:8px 10px;color:var(--ink);text-align:right}
+.res{margin-top:18px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.res div{background:var(--bg-alt);border-radius:12px;padding:12px 14px}
+.res small{display:block;font-size:13px;color:var(--muted)}
+.res b{display:block;font-size:24px;color:var(--ink);line-height:1.25;white-space:nowrap}
+.res div.main{background:var(--navy)} .res div.main small{color:#9fb2c6} .res div.main b{color:var(--data)}
+@media (max-width:520px){.res{grid-template-columns:1fr}}
+.viz{margin:6px 0 16px;border-radius:12px;background:var(--bg-alt);padding:14px}
+.viz svg{display:block;width:100%;height:auto}
+
+/* fan */
+.fanrow{display:flex;align-items:center;gap:20px}
+.viz .fan{width:118px;height:118px;flex:none}
+.fan .blades{transform-origin:60px 60px;animation:spin var(--spd,1.2s) linear infinite;animation-play-state:var(--play,running)}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.fan .blades{animation:none}}
+.bars{flex:1;display:grid;gap:10px}
+.bars .row{display:grid;grid-template-columns:62px 1fr 64px;align-items:center;gap:10px;font-size:13.5px;color:var(--muted)}
+.bars .track{height:16px;background:#e2e8f0;border-radius:8px;overflow:hidden}
+.bars .fill{height:100%;background:#94a3b8;border-radius:8px;transform-origin:left;transition:transform 300ms var(--ease)}
+.bars .fill.g{background:var(--action)}
+.fanrow+*{margin-top:0}
+@media (max-width:560px){.fanrow{flex-direction:column;align-items:stretch}.viz .fan{align-self:center;width:96px;height:96px}}
+.bars .row b{text-align:right;color:var(--ink);font-family:"Barlow";font-variant-numeric:tabular-nums}
+
+/* cta + footer */
+.cta{background:var(--navy);color:#b6c4d4;position:relative;overflow:hidden}
+.cta::before{content:"";position:absolute;left:-200px;bottom:-260px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(0,191,165,.08),transparent 65%)}
+.cta h2{color:#fff;font-size:clamp(26px,3vw,36px)}
+.cta .row{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;position:relative}
+.cta .btns{display:flex;gap:12px;flex-wrap:wrap}
+footer{background:#081221;color:#8aa0b8;padding:40px 0 110px;font-size:14px}
+footer a{color:#cbd5e1;text-decoration:none}
+@media (min-width:761px){footer{padding-bottom:40px}}
+.mbar{display:none}
+@media (max-width:760px){.mbar{display:grid;grid-template-columns:1fr 1.3fr;gap:8px;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:rgba(255,255,255,.97);border-top:1px solid var(--line)}.mbar a{display:flex;align-items:center;justify-content:center;min-height:48px;border-radius:10px;font-weight:700;text-decoration:none;transition:transform 140ms var(--ease)}.mbar a:active{transform:scale(.98)}.mbar .l{background:var(--navy);color:#fff}.mbar .u{background:var(--action);color:#fff}}
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="主選單">
+  <div class="wrap">
+    <a class="brand" href="index.html" aria-label="能溢有限公司 首頁"><img src="assets/logo-horizontal-white.svg" alt="能溢有限公司" width="114" height="40"></a>
+    <ul>
+      <li><a href="index.html#model">0 元方案</a></li>
+      <li><a href="small.html">小店家方案</a></li>
+      <li><a href="solution.html">產業方案</a></li>
+      <li><a href="methods.html" aria-current="page">節能方法</a></li>
+      <li><a href="index.html#calc">電費試算</a></li>
+      <li><a href="index.html#faq">常見問題</a></li>
+    </ul>
+    <a class="btn btn-go" href="index.html#apply">免費電費健檢</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1 class="reveal">7 種最常見的節能方法，<wbr>先自己算算看</h1>
+    <p class="lede reveal">每一種方法都附上原理、公式和範例，拉動滑桿就能看到一年大約省多少度電、多少錢。這些是工程上常用的估算，正式數字以現場量測為準。</p>
+
+    <div class="bento" data-stagger>
+      <a class="bx big" href="#vfd">
+        <span class="tag">大用戶</span>
+        <div><b>變頻：轉速降一點，耗電降很多</b><p style="margin-top:6px;font-size:14.5px">泵浦、風車的耗電與轉速的三次方成正比。</p></div>
+        <div>
+          <div class="k num">51<small>% 耗電</small></div>
+          <span>轉速降到 80% 時，耗電約剩一半</span>
+          <div class="cube" aria-hidden="true">
+            <i style="height:100%"><em>100%</em></i><i style="height:73%"><em>90%</em></i><i class="on" style="height:51%"><em>80%</em></i><i style="height:34%"><em>70%</em></i>
+          </div>
+        </div>
+      </a>
+      <a class="bx" href="#contract"><span class="tag">大小都適用</span><b>契約容量</b><div><div class="k num">2–3<small>倍罰款</small></div><span>訂太高浪費，訂太低超約</span></div></a>
+      <a class="bx" href="#tou"><span class="tag">大小都適用</span><b>時間電價</b><div><div class="k num">2.5<small>倍價差</small></div><span>同一度電，尖峰離峰價差大</span></div></a>
+      <a class="bx" href="#chw"><span class="tag">大用戶</span><b>冰水溫度重設</b><div><div class="k num">2–3<small>% / °C</small></div><span>出水溫度每升 1°C</span></div></a>
+      <a class="bx" href="#chiller"><span class="tag">大用戶</span><b>冰水主機汰換</b><div><div class="k num">0.9→0.6<small>kW/RT</small></div><span>老主機換高效率機</span></div></a>
+      <a class="bx wide" href="#led"><span class="tag">大小都適用</span><b>LED 照明</b><div><div class="k num">40–60<small>% 照明用電</small></div><span>傳統燈管換 LED，最快回本的一項</span></div></a>
+      <a class="bx wide" href="#air"><span class="tag">工廠</span><b>空壓機</b><div><div class="k num">6–8<small>% / bar</small></div><span>壓力每降 1 bar</span></div></a>
+    </div>
+  </div>
+</header>
+
+<div class="assume" role="region" aria-label="試算假設">
+  <div class="wrap">
+    <label>平均電價 <input id="gPrice" type="number" step="0.1" min="0" value="4.0" inputmode="decimal" aria-label="平均電價，元每度"> 元/度</label>
+    <label>排碳係數 <input id="gEf" type="number" step="0.001" min="0" value="0.474" inputmode="decimal" aria-label="排碳係數，公斤每度"> kg/度</label>
+    <nav class="jump" aria-label="跳到方法">
+      <a href="#contract">契約容量</a><a href="#tou">時間電價</a><a href="#vfd">變頻</a><a href="#chw">冰水溫度</a><a href="#chiller">主機汰換</a><a href="#led">LED</a><a href="#air">空壓機</a>
+    </nav>
+  </div>
+</div>
+
+<main>
+
+<!-- 1 契約容量 -->
+<section class="m" id="contract"><div class="wrap"><div class="m-grid">
+  <div class="reveal">
+    <p class="idx">方法 1・契約容量最佳化</p>
+    <h2>契約容量：找到基本電費最低的那一點</h2>
+    <p class="what">基本電費是按「契約容量」每月固定收的。訂太高，每月為用不到的容量付錢；訂太低，只要 15 分鐘平均需量超過，超出的部分要多付 2～3 倍。最省的值通常在兩者之間，而且常常允許夏天小幅超約。</p>
+    <div class="fit"><span>小店家</span><span>大用戶</span><span>不用改設備</span><span>1～2 個月見效</span></div>
+    <div class="block"><h3>計算方式</h3>
+      <div class="formula">每月基本電費 ＝ 契約容量 × 單價<br>＋ 超約 10% 以內部分 × 單價 × <b>2</b><br>＋ 超約 10% 以上部分 × 單價 × <b>3</b></div>
+    </div>
+    <div class="block"><h3>範例</h3>
+      <p class="example">一家美髮店（低壓）契約 80 瓩，一年最高只用到 70 瓩，非夏月多在 36～52 瓩。算下來調到 61 瓩最省：夏天有 3 個月小幅超約，但全年基本電費反而少付約 3.5 萬元。</p>
+    </div>
+    <p class="caveat">單價：低壓夏月 236.20、非夏月 173.20 元/瓩・月；高壓 223.60／166.90 元。依台電現行經常契約費率，台電調價時以新費率為準。</p>
+  </div>
+  <div class="calc reveal">
+    <h3>試算：契約容量該訂多少？</h3>
+    <p class="sub">輸入目前契約和夏天、非夏天的最高需量</p>
+    <div class="f"><label for="cType">用電類別</label><select id="cType"><option value="lv">低壓需量</option><option value="hv">高壓</option></select></div>
+    <div class="f"><label for="cNow">目前契約容量</label><output id="cNowO" for="cNow"></output><input id="cNow" type="range" min="20" max="600" step="1" value="80"></div>
+    <div class="f"><label for="cSum">夏月最高需量</label><output id="cSumO" for="cSum"></output><input id="cSum" type="range" min="10" max="600" step="1" value="70"></div>
+    <div class="f"><label for="cNon">非夏月最高需量</label><output id="cNonO" for="cNon"></output><input id="cNon" type="range" min="10" max="600" step="1" value="50"></div>
+    <div class="viz"><svg id="cChart" viewBox="0 0 520 190" role="img" aria-label="不同契約容量的年基本電費曲線"></svg></div>
+    <div class="res">
+      <div class="main"><small>建議契約容量</small><b class="num" id="cBest">—</b></div>
+      <div><small>每年省基本電費</small><b class="num" id="cSave">—</b></div>
+      <div><small>夏月超約</small><b class="num" id="cOver">—</b></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- 2 時間電價 -->
+<section class="m" id="tou"><div class="wrap"><div class="m-grid">
+  <div class="reveal">
+    <p class="idx">方法 2・時間電價</p>
+    <h2>時間電價：同一度電，換個時段更便宜</h2>
+    <p class="what">時間電價把一天分成尖峰、離峰等時段，尖峰貴、離峰便宜。營業時間大多在離峰、或能把部分用電（儲冰、熱水、充電、預冷）移到離峰的用戶，改用時間電價通常更省。</p>
+    <div class="fit"><span>小店家</span><span>大用戶</span><span>需看 15 分鐘用電資料</span></div>
+    <div class="block"><h3>計算方式</h3>
+      <div class="formula">每月節省 ＝ 移到離峰的度數 × （尖峰單價 − 離峰單價）</div>
+    </div>
+    <div class="block"><h3>範例</h3>
+      <p class="example">以高壓時間電價夏月為例，平日尖峰每度 6.75 元、離峰 2.71 元，價差 4.04 元。每月把 3,000 度移到離峰，一個月就少付約 1.2 萬元。</p>
+    </div>
+    <p class="caveat">各類用電的時段與單價不同，換不換方案要用電力分析儀的 15 分鐘資料比較整年電費才準。能溢會在裝機後替你評估。</p>
+  </div>
+  <div class="calc reveal">
+    <h3>試算：移一部分用電到離峰</h3>
+    <p class="sub">單價可依你的電價方案修改</p>
+    <div class="f"><label for="tPeak">尖峰單價（元/度）</label><input id="tPeak" type="number" step="0.01" value="6.75" inputmode="decimal"></div>
+    <div class="f"><label for="tOff">離峰單價（元/度）</label><input id="tOff" type="number" step="0.01" value="2.71" inputmode="decimal"></div>
+    <div class="f"><label for="tKwh">每月移到離峰的度數</label><output id="tKwhO" for="tKwh"></output><input id="tKwh" type="range" min="0" max="20000" step="100" value="3000"></div>
+    <div class="f"><label for="tMon">一年適用月數</label><output id="tMonO" for="tMon"></output><input id="tMon" type="range" min="1" max="12" step="1" value="4"></div>
+    <div class="viz"><svg id="tChart" viewBox="0 0 520 120" role="img" aria-label="尖峰與離峰每度電價比較"></svg></div>
+    <div class="res">
+      <div class="main"><small>每年省電費</small><b class="num" id="tSave">—</b></div>
+      <div><small>每月省</small><b class="num" id="tMonth">—</b></div>
+      <div><small>每度省</small><b class="num" id="tDiff">—</b></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- 3 變頻 -->
+<section class="m" id="vfd"><div class="wrap"><div class="m-grid">
+  <div class="reveal">
+    <p class="idx">方法 3・泵浦與風車變頻</p>
+    <h2>變頻：轉速降一點，耗電降很多</h2>
+    <p class="what">冰水泵、冷卻水泵、冷卻水塔風車、空調箱風車，很多是定頻全速運轉。依流體的相似定律，流量跟轉速成正比，耗電卻跟轉速的三次方成正比，所以轉速只降 20%，耗電就少將近一半。</p>
+    <div class="fit"><span>大用戶</span><span>工廠</span><span>商辦</span><span>醫院飯店</span></div>
+    <div class="block"><h3>計算方式</h3>
+      <div class="formula">變頻後耗電 ＝ 原耗電 × （轉速比）<b>³</b><br>年節電 ＝ 馬達耗電 × （1 − 轉速比³） × 年運轉時數</div>
+    </div>
+    <div class="block"><h3>範例</h3>
+      <p class="example">一台 30 kW 冷卻水泵，每天運轉 12 小時、全年 365 天。轉速降到 80%，耗電剩 51.2%，一年約省 6.4 萬度電，以每度 4 元計約 25.6 萬元。</p>
+    </div>
+    <p class="caveat">實際效益要扣掉系統靜壓與變頻器損失，並確認最低流量需求，以現場量測為準。</p>
+  </div>
+  <div class="calc reveal">
+    <h3>試算：轉速降多少、省多少</h3>
+    <p class="sub">拉動轉速，看風車和耗電一起變化</p>
+    <div class="viz">
+      <div class="fanrow">
+        <svg class="fan" id="fan" viewBox="0 0 120 120" aria-hidden="true">
+          <circle cx="60" cy="60" r="56" fill="#fff" stroke="rgba(15,23,42,.12)"/>
+          <g class="blades">
+            <path d="M60 60 C52 34 56 16 66 12 C76 18 70 40 60 60Z" fill="#0B192C"/>
+            <path d="M60 60 C52 34 56 16 66 12 C76 18 70 40 60 60Z" fill="#0B192C" transform="rotate(120 60 60)"/>
+            <path d="M60 60 C52 34 56 16 66 12 C76 18 70 40 60 60Z" fill="#0B192C" transform="rotate(240 60 60)"/>
+          </g>
+          <circle cx="60" cy="60" r="7" fill="#00875A"/>
+        </svg>
+        <div class="bars">
+          <div class="row"><span>變頻前</span><div class="track"><div class="fill" style="transform:scaleX(1)"></div></div><b>100%</b></div>
+          <div class="row"><span>變頻後</span><div class="track"><div class="fill g" id="vBar"></div></div><b id="vPct">—</b></div>
+        </div>
+      </div>
+    </div>
+    <div class="f"><label for="vSpd">轉速</label><output id="vSpdO" for="vSpd"></output><input id="vSpd" type="range" min="50" max="100" step="1" value="80"></div>
+    <div class="f"><label for="vKw">馬達耗電（kW）</label><output id="vKwO" for="vKw"></output><input id="vKw" type="range" min="1" max="200" step="1" value="30"></div>
+    <div class="f"><label for="vHr">每天運轉時數</label><output id="vHrO" for="vHr"></output><input id="vHr" type="range" min="1" max="24" step="1" value="12"></div>
+    <div class="f"><label for="vDay">每年運轉天數</label><output id="vDayO" for="vDay"></output><input id="vDay" type="range" min="50" max="365" step="5" value="365"></div>
+    <div class="res">
+      <div class="main"><small>每年省電費</small><b class="num" id="vSave">—</b></div>
+      <div><small>年節電</small><b class="num" id="vKwh">—</b></div>
+      <div><small>年減碳</small><b class="num" id="vCo2">—</b></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- 4 冰水溫度 -->
+<section class="m" id="chw"><div class="wrap"><div class="m-grid">
+  <div class="reveal">
+    <p class="idx">方法 4・冰水出水溫度重設</p>
+    <h2>冰水溫度：不熱的時候，不必冰到 7°C</h2>
+    <p class="what">冰水主機大多固定在 7°C 左右出水。春秋季或部分負載時，把出水溫度調高 1～3°C，室內一樣舒適，主機的壓縮機卻輕鬆很多。這是不用花錢、最常被忽略的一項。</p>
+    <div class="fit"><span>大用戶</span><span>中央空調</span><span>幾乎零成本</span></div>
+    <div class="block"><h3>計算方式</h3>
+      <div class="formula">年節電 ＝ 主機年耗電 × 每升 1°C 節省率 × 升溫度數<br>每升 1°C 約省 <b>2～3%</b></div>
+    </div>
+    <div class="block"><h3>範例</h3>
+      <p class="example">主機平均耗電 200 kW、一年運轉 3,000 小時，年耗電 60 萬度。出水溫度調高 2°C、以每度 2.5% 計，一年約省 3 萬度、12 萬元。</p>
+    </div>
+    <p class="caveat">要搭配除濕需求與末端空調箱能力調整；精密製程、醫療區域依規範另行評估。</p>
+  </div>
+  <div class="calc reveal">
+    <h3>試算：調高幾度？</h3>
+    <p class="sub">每升 1°C 的節省率可依機型修改</p>
+    <div class="viz"><svg id="wChart" viewBox="0 0 520 120" role="img" aria-label="冰水出水溫度與主機耗電"></svg></div>
+    <div class="f"><label for="wUp">出水溫度調高</label><output id="wUpO" for="wUp"></output><input id="wUp" type="range" min="0.5" max="4" step="0.5" value="2"></div>
+    <div class="f"><label for="wKw">主機平均耗電（kW）</label><output id="wKwO" for="wKw"></output><input id="wKw" type="range" min="20" max="1500" step="10" value="200"></div>
+    <div class="f"><label for="wHr">年運轉時數</label><output id="wHrO" for="wHr"></output><input id="wHr" type="range" min="500" max="8760" step="100" value="3000"></div>
+    <div class="f"><label for="wRate">每升 1°C 節省率（%）</label><input id="wRate" type="number" step="0.1" min="0" max="5" value="2.5" inputmode="decimal"></div>
+    <div class="res">
+      <div class="main"><small>每年省電費</small><b class="num" id="wSave">—</b></div>
+      <div><small>年節電</small><b class="num" id="wKwh">—</b></div>
+      <div><small>年減碳</small><b class="num" id="wCo2">—</b></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- 5 主機汰換 -->
+<section class="m" id="chiller"><div class="wrap"><div class="m-grid">
+  <div class="reveal">
+    <p class="idx">方法 5・冰水主機汰換</p>
+    <h2>主機汰換：看 kW/RT，不是看還能不能動</h2>
+    <p class="what">衡量冰水主機效率的指標是 kW/RT：每產生 1 冷凍噸要用多少電，數字越小越省。用了十幾年的主機常在 0.9 以上，新的高效率變頻主機可以做到 0.6 左右，等於同樣的冷，少用三分之一的電。</p>
+    <div class="fit"><span>大用戶</span><span>0 元 ESCO 可代墊</span></div>
+    <div class="block"><h3>計算方式</h3>
+      <div class="formula">年節電 ＝ 容量（RT） × 平均負載率 × 年運轉時數 × （舊 kW/RT − 新 kW/RT）</div>
+    </div>
+    <div class="block"><h3>範例</h3>
+      <p class="example">300 RT 主機，平均負載 70%、一年運轉 3,000 小時，效率從 0.9 改善到 0.6 kW/RT，一年約省 18.9 萬度電、75.6 萬元。</p>
+    </div>
+    <p class="caveat">kW/RT 會隨負載與冷卻水溫度變動，汰換前應以電力分析儀量測實際運轉效率。</p>
+  </div>
+  <div class="calc reveal">
+    <h3>試算：換新主機一年省多少？</h3>
+    <p class="sub">舊主機效率建議先量測</p>
+    <div class="f"><label for="hRt">主機容量（RT）</label><output id="hRtO" for="hRt"></output><input id="hRt" type="range" min="20" max="2000" step="10" value="300"></div>
+    <div class="f"><label for="hLoad">平均負載率</label><output id="hLoadO" for="hLoad"></output><input id="hLoad" type="range" min="20" max="100" step="5" value="70"></div>
+    <div class="f"><label for="hHr">年運轉時數</label><output id="hHrO" for="hHr"></output><input id="hHr" type="range" min="500" max="8760" step="100" value="3000"></div>
+    <div class="f"><label for="hOld">舊主機 kW/RT</label><input id="hOld" type="number" step="0.01" min="0" value="0.90" inputmode="decimal"></div>
+    <div class="f"><label for="hNew">新主機 kW/RT</label><input id="hNew" type="number" step="0.01" min="0" value="0.60" inputmode="decimal"></div>
+    <div class="res">
+      <div class="main"><small>每年省電費</small><b class="num" id="hSave">—</b></div>
+      <div><small>年節電</small><b class="num" id="hKwh">—</b></div>
+      <div><small>效率改善</small><b class="num" id="hPct">—</b></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- 6 LED -->
+<section class="m" id="led"><div class="wrap"><div class="m-grid">
+  <div class="reveal">
+    <p class="idx">方法 6・LED 照明汰換</p>
+    <h2>LED：最容易算、最快回本</h2>
+    <p class="what">傳統 T8、T5 燈管或筒燈換成 LED，同樣亮度只要大約一半的電，壽命也長很多。營業時間越長、燈越多的場所，回本越快。</p>
+    <div class="fit"><span>小店家</span><span>大用戶</span><span>停車場、走道最划算</span></div>
+    <div class="block"><h3>計算方式</h3>
+      <div class="formula">年節電 ＝ 燈具數 × （舊瓦數 − 新瓦數） ÷ 1000 × 每天時數 × 年天數</div>
+    </div>
+    <div class="block"><h3>範例</h3>
+      <p class="example">200 盞 T5 燈具（含安定器約 62W）換成 36W LED，每天亮 12 小時、全年 365 天，一年約省 2.3 萬度、9.1 萬元。</p>
+    </div>
+    <p class="caveat">換燈前確認照度符合需求；冷氣房內照明減少發熱，空調也會略省一些（本試算未計入）。</p>
+  </div>
+  <div class="calc reveal">
+    <h3>試算：換 LED 一年省多少？</h3>
+    <p class="sub">瓦數請用含安定器的實際耗電</p>
+    <div class="f"><label for="lN">燈具數量</label><output id="lNO" for="lN"></output><input id="lN" type="range" min="10" max="2000" step="10" value="200"></div>
+    <div class="f"><label for="lOld">舊燈瓦數（W）</label><input id="lOld" type="number" min="0" step="1" value="62" inputmode="numeric"></div>
+    <div class="f"><label for="lNew">LED 瓦數（W）</label><input id="lNew" type="number" min="0" step="1" value="36" inputmode="numeric"></div>
+    <div class="f"><label for="lHr">每天亮幾小時</label><output id="lHrO" for="lHr"></output><input id="lHr" type="range" min="1" max="24" step="1" value="12"></div>
+    <div class="f"><label for="lDay">每年天數</label><output id="lDayO" for="lDay"></output><input id="lDay" type="range" min="50" max="365" step="5" value="365"></div>
+    <div class="res">
+      <div class="main"><small>每年省電費</small><b class="num" id="lSave">—</b></div>
+      <div><small>年節電</small><b class="num" id="lKwh">—</b></div>
+      <div><small>照明用電減少</small><b class="num" id="lPct">—</b></div>
+    </div>
+  </div>
+</div></div></section>
+
+<!-- 7 空壓機 -->
+<section class="m" id="air"><div class="wrap"><div class="m-grid">
+  <div class="reveal">
+    <p class="idx">方法 7・空壓機降壓與抓漏</p>
+    <h2>空壓機：壓力設太高、管路在漏氣</h2>
+    <p class="what">壓縮空氣是工廠最貴的「能源」之一。很多工廠的壓力設定比設備真正需要的高 1～2 bar，管路接頭也常有漏氣。降低設定壓力、定期抓漏，就能直接少開空壓機。</p>
+    <div class="fit"><span>工廠</span><span>洗車、印刷、食品加工</span></div>
+    <div class="block"><h3>計算方式</h3>
+      <div class="formula">年節電 ＝ 空壓機年耗電 × （降壓 bar 數 × <b>7%</b> ＋ 漏氣改善比例）</div>
+    </div>
+    <div class="block"><h3>範例</h3>
+      <p class="example">55 kW 空壓機一年運轉 6,000 小時，年耗電 33 萬度。壓力降 1 bar（約省 7%）、抓漏再省 10%，一年約省 5.6 萬度、22.4 萬元。</p>
+    </div>
+    <p class="caveat">每降 1 bar 約省 6～8% 是業界常用經驗值；降壓前要確認最遠端用氣設備的最低壓力需求。</p>
+  </div>
+  <div class="calc reveal">
+    <h3>試算：降壓加抓漏</h3>
+    <p class="sub">漏氣改善比例可依抓漏結果修改</p>
+    <div class="f"><label for="aKw">空壓機耗電（kW）</label><output id="aKwO" for="aKw"></output><input id="aKw" type="range" min="5" max="400" step="1" value="55"></div>
+    <div class="f"><label for="aHr">年運轉時數</label><output id="aHrO" for="aHr"></output><input id="aHr" type="range" min="500" max="8760" step="100" value="6000"></div>
+    <div class="f"><label for="aBar">降低壓力（bar）</label><output id="aBarO" for="aBar"></output><input id="aBar" type="range" min="0" max="2" step="0.5" value="1"></div>
+    <div class="f"><label for="aLeak">漏氣改善（%）</label><output id="aLeakO" for="aLeak"></output><input id="aLeak" type="range" min="0" max="30" step="1" value="10"></div>
+    <div class="res">
+      <div class="main"><small>每年省電費</small><b class="num" id="aSave">—</b></div>
+      <div><small>年節電</small><b class="num" id="aKwh">—</b></div>
+      <div><small>年減碳</small><b class="num" id="aCo2">—</b></div>
+    </div>
+  </div>
+</div></div></section>
+
+<section class="cta"><div class="wrap"><div class="row reveal">
+  <div><h2>想知道你的場所適合哪幾種？</h2><p style="margin-top:8px">上傳電費單，能源工程師 48 小時內給你一份免費診斷報告。</p></div>
+  <div class="btns"><a class="btn btn-go" href="index.html#apply">預約免費電費健檢 <span class="arr">→</span></a><a class="btn btn-ghost" href="small.html#apply">小店家拍電費單</a></div>
+</div></div></section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><a href="index.html">能溢有限公司</a>｜電話 <a href="tel:0975463123">0975-463-123</a>　Email <a href="mailto:ericworks753@gmail.com">ericworks753@gmail.com</a>　統一編號 62178327</p>
+    <p style="margin-top:8px">本頁數字為工程估算與範例，實際效益以現場量測及台電帳單為準。</p>
+  </div>
+</footer>
+
+<div class="mbar" aria-label="快速聯絡">
+  <a class="l" href="tel:0975463123">撥打電話</a>
+  <a class="u" href="index.html#apply">免費電費健檢</a>
+</div>
+
+<script src="assets/motion.js"></script>
+<script>
+{
+const $=id=>document.getElementById(id);
+const f0=x=>isFinite(x)?Math.round(x).toLocaleString('zh-TW'):'—';
+const f1=x=>isFinite(x)?Number(x).toLocaleString('zh-TW',{maximumFractionDigits:1}):'—';
+const money=x=>{if(!isFinite(x))return'—';return Math.abs(x)>=10000? f1(x/10000)+' 萬元' : f0(x)+' 元'};
+const kwh=x=>!isFinite(x)?'—':(x>=10000? f1(x/10000)+' 萬度' : f0(x)+' 度');
+const price=()=>+$('gPrice').value||0, ef=()=>+$('gEf').value||0;
+const co2=k=>f1(k*ef()/1000)+' 噸';
+const out=(id,txt)=>{$(id).textContent=txt};
+
+/* 1 契約容量 */
+const RATE={lv:[236.2,173.2],hv:[223.6,166.9]};
+function basic(C,D,r){let c=C*r;const o=Math.max(0,D-C);if(o>0){const a=Math.min(o,0.1*C);c+=a*r*2+(o-a)*r*3}return c}
+function contract(){
+  const t=$('cType').value,[rs,rn]=RATE[t],sm=t==='lv'?4:5,nm=12-sm;
+  const C0=+$('cNow').value,Ds=+$('cSum').value,Dn=+$('cNon').value;
+  out('cNowO',C0+' 瓩');out('cSumO',Ds+' 瓩');out('cNonO',Dn+' 瓩');
+  const cost=C=>sm*basic(C,Ds,rs)+nm*basic(C,Dn,rn);
+  const lo=Math.max(1,Math.floor(Math.min(Ds,Dn)*0.6)),hi=Math.ceil(Math.max(Ds,C0)*1.25);
+  let best=C0,bc=cost(C0);const pts=[];
+  for(let C=lo;C<=hi;C++){const c=cost(C);pts.push([C,c]);if(c<bc-0.5){bc=c;best=C}}
+  out('cBest',best+' 瓩');out('cSave',money(cost(C0)-bc));
+  const ov=Math.max(0,Ds-best);out('cOver',ov>0?('+'+ov+' 瓩'):'不超約');
+  const W=520,H=190,L=10,R=10,T=14,B=26,iw=W-L-R,ih=H-T-B;
+  const ys=pts.map(p=>p[1]),mn=Math.min(...ys),mx=Math.max(...ys);
+  const x=C=>L+iw*(C-lo)/(hi-lo||1),y=v=>T+ih*(1-(v-mn)/((mx-mn)||1));
+  const d=pts.map((p,i)=>(i?'L':'M')+x(p[0]).toFixed(1)+' '+y(p[1]).toFixed(1)).join(' ');
+  $('cChart').innerHTML=`<path d="${d}" fill="none" stroke="#94a3b8" stroke-width="2.2"/>
+    <line x1="${x(C0)}" x2="${x(C0)}" y1="${T}" y2="${T+ih}" stroke="#64748B" stroke-dasharray="4 4"/>
+    <text x="${x(C0)+5}" y="${T+12}" font-size="12" fill="#64748B">目前 ${C0}</text>
+    <line x1="${x(Ds)}" x2="${x(Ds)}" y1="${T}" y2="${T+ih}" stroke="#D14343" stroke-dasharray="3 4" opacity=".8"/>
+    <text x="${x(Ds)+5}" y="${T+ih-6}" font-size="12" fill="#D14343">夏月需量 ${Ds}</text>
+    <circle cx="${x(best)}" cy="${y(bc)}" r="6" fill="#00875A"/>
+    <text x="${x(best)}" y="${H-6}" font-size="12.5" fill="#00704A" text-anchor="middle" font-weight="700">最省 ${best} 瓩</text>`;
+}
+['cType','cNow','cSum','cNon'].forEach(i=>$(i).addEventListener('input',contract));
+
+/* 2 時間電價 */
+function tou(){
+  const p=+$('tPeak').value,o=+$('tOff').value,k=+$('tKwh').value,m=+$('tMon').value,d=Math.max(0,p-o);
+  out('tKwhO',f0(k)+' 度');out('tMonO',m+' 個月');
+  out('tSave',money(d*k*m));out('tMonth',money(d*k));out('tDiff',d.toFixed(2)+' 元');
+  const mx=Math.max(p,o,0.01),W=520,bw=v=>380*v/mx;
+  $('tChart').innerHTML=`<text x="0" y="34" font-size="13" fill="#334155">尖峰</text><rect x="60" y="18" width="${bw(p)}" height="24" rx="5" fill="#94a3b8"/><text x="${66+bw(p)}" y="35" font-size="13" fill="#0B192C" font-family="Barlow" font-weight="600">${p.toFixed(2)} 元</text>
+  <text x="0" y="84" font-size="13" fill="#334155">離峰</text><rect x="60" y="68" width="${bw(o)}" height="24" rx="5" fill="#00875A"/><text x="${66+bw(o)}" y="85" font-size="13" fill="#0B192C" font-family="Barlow" font-weight="600">${o.toFixed(2)} 元</text>`;
+}
+['tPeak','tOff','tKwh','tMon'].forEach(i=>$(i).addEventListener('input',tou));
+
+/* 3 變頻 */
+function vfd(){
+  const s=+$('vSpd').value/100,kw=+$('vKw').value,h=+$('vHr').value,dd=+$('vDay').value,r=s*s*s;
+  out('vSpdO',Math.round(s*100)+'%');out('vKwO',kw+' kW');out('vHrO',h+' 小時');out('vDayO',dd+' 天');
+  const k=kw*(1-r)*h*dd;
+  $('vBar').style.transform=`scaleX(${r})`;out('vPct',f1(r*100)+'%');
+  out('vSave',money(k*price()));out('vKwh',kwh(k));out('vCo2',co2(k));
+  $('fan').style.setProperty('--spd',(0.6/s).toFixed(2)+'s');
+}
+['vSpd','vKw','vHr','vDay'].forEach(i=>$(i).addEventListener('input',vfd));
+/* 風車只在畫面內轉 */
+if('IntersectionObserver' in window){new IntersectionObserver(es=>es.forEach(e=>$('fan').style.setProperty('--play',e.isIntersecting?'running':'paused'))).observe($('fan'))}
+
+/* 4 冰水溫度 */
+function chw(){
+  const up=+$('wUp').value,kw=+$('wKw').value,h=+$('wHr').value,rate=(+$('wRate').value||0)/100;
+  out('wUpO','+'+f1(up)+' °C');out('wKwO',f0(kw)+' kW');out('wHrO',f0(h)+' 小時');
+  const k=kw*h*Math.min(1,rate*up);
+  out('wSave',money(k*price()));out('wKwh',kwh(k));out('wCo2',co2(k));
+  const W=520,steps=[0,1,2,3,4],x=t=>40+t*110,bh=t=>70*(1-Math.min(1,rate*t));
+  $('wChart').innerHTML=steps.map(t=>{const on=t<=up+1e-9&&t>0;return `<rect x="${x(t)-18}" y="${90-bh(t)}" width="36" height="${bh(t)}" rx="4" fill="${t===0?'#94a3b8':on?'#00875A':'#cbd5e1'}"/><text x="${x(t)}" y="110" font-size="12" fill="#64748B" text-anchor="middle">${t===0?'7°C':(7+t)+'°C'}</text><text x="${x(t)}" y="${84-bh(t)}" font-size="12" fill="#0B192C" text-anchor="middle" font-family="Barlow" font-weight="600">${f0(100*(1-Math.min(1,rate*t)))}%</text>`}).join('');
+}
+['wUp','wKw','wHr','wRate'].forEach(i=>$(i).addEventListener('input',chw));
+
+/* 5 主機汰換 */
+function chiller(){
+  const rt=+$('hRt').value,ld=+$('hLoad').value/100,h=+$('hHr').value,o=+$('hOld').value,n=+$('hNew').value;
+  out('hRtO',f0(rt)+' RT');out('hLoadO',Math.round(ld*100)+'%');out('hHrO',f0(h)+' 小時');
+  const k=Math.max(0,rt*ld*h*(o-n));
+  out('hSave',money(k*price()));out('hKwh',kwh(k));out('hPct',o>0?f1(Math.max(0,(o-n)/o*100))+'%':'—');
+}
+['hRt','hLoad','hHr','hOld','hNew'].forEach(i=>$(i).addEventListener('input',chiller));
+
+/* 6 LED */
+function led(){
+  const n=+$('lN').value,o=+$('lOld').value,w=+$('lNew').value,h=+$('lHr').value,dd=+$('lDay').value;
+  out('lNO',f0(n)+' 盞');out('lHrO',h+' 小時');out('lDayO',dd+' 天');
+  const k=Math.max(0,n*(o-w)/1000*h*dd);
+  out('lSave',money(k*price()));out('lKwh',kwh(k));out('lPct',o>0?f1(Math.max(0,(o-w)/o*100))+'%':'—');
+}
+['lN','lOld','lNew','lHr','lDay'].forEach(i=>$(i).addEventListener('input',led));
+
+/* 7 空壓機 */
+function air(){
+  const kw=+$('aKw').value,h=+$('aHr').value,b=+$('aBar').value,lk=+$('aLeak').value/100;
+  out('aKwO',kw+' kW');out('aHrO',f0(h)+' 小時');out('aBarO',f1(b)+' bar');out('aLeakO',Math.round(lk*100)+'%');
+  const k=kw*h*Math.min(1,b*0.07+lk);
+  out('aSave',money(k*price()));out('aKwh',kwh(k));out('aCo2',co2(k));
+}
+['aKw','aHr','aBar','aLeak'].forEach(i=>$(i).addEventListener('input',air));
+
+function all(){contract();tou();vfd();chw();chiller();led();air()}
+['gPrice','gEf'].forEach(i=>$(i).addEventListener('input',all));
+all();
+}
+</script>
+</body>
+</html>

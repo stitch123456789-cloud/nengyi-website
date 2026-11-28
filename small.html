@@ -2,7 +2,8 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B192C">
 <title>小店家 0 元電費管理｜能溢有限公司</title>
 <meta name="description" content="美髮、餐飲、門市等小店家，0 元安裝電力分析儀，由能溢代辦契約容量與電價方案調整。省下的電費 7:3 分潤，沒省到不收費。">
 <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
@@ -10,9 +11,9 @@
 <meta property="og:image" content="/assets/logo-icon-512.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Barlow:wght@500;600&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#0F2942;--navy-3:#0a1d30;--green:#10B981;--green-soft:#e7f8f1;--amber:#F59E0B;--bg:#F8FAFC;--ink:#334155;--muted:#64748b;--line:#e2e8f0;--red:#e2554a}
+:root{--navy:#0B192C;--navy-3:#0a1d30;--green:#00C853;--green-soft:#e7f8f1;--amber:#F59E0B;--bg:#F8FAFC;--ink:#334155;--muted:#64748b;--line:#e2e8f0;--red:#e2554a}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:76px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
@@ -22,14 +23,14 @@ h2{font-size:clamp(26px,3.2vw,36px);font-weight:900}
 h3{font-size:18px}
 p{margin:0}
 a{color:inherit}
-.num{font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums}
+.num{font-family:"Barlow","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px}
 section{padding:88px 0}
 @media (max-width:720px){section{padding:60px 0}}
 .lede{font-size:17px;color:var(--muted);max-width:660px;margin-top:12px}
 :focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
 .btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:700;font-size:16px;padding:14px 24px;border-radius:10px;border:2px solid transparent;text-decoration:none;cursor:pointer}
-.btn:hover{filter:brightness(1.06)}
+
 .btn-amber{background:var(--amber);color:#1f1300}
 .btn-line{color:#fff;border-color:rgba(255,255,255,.55)}
 .btn-sm{padding:9px 16px;font-size:14.5px;border-radius:8px}
@@ -39,17 +40,17 @@ section{padding:88px 0}
 .brand{display:flex;align-items:center;text-decoration:none}
 .brand img{display:block;height:40px;width:auto}
 .brand b{font-size:19px;font-weight:900;line-height:1.1;display:block}
-.brand small{display:block;font-family:"Barlow Condensed";font-size:12px;letter-spacing:.08em;color:#94a8bd;line-height:1}
+.brand small{display:block;font-family:"Barlow";font-size:12px;letter-spacing:.08em;color:#94a8bd;line-height:1}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0 0 0 auto;padding:0}
 .nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;font-size:15px;color:#cbd5e1}
-.nav ul a:hover,.nav ul a[aria-current]{color:#fff;background:rgba(255,255,255,.08)}
+.nav ul a[aria-current]{color:#fff;background:rgba(255,255,255,.08)}
 @media (max-width:960px){.nav ul{display:none}.nav .btn-sm{margin-left:auto}}
 
 /* industry tabs */
 .tabs{background:var(--navy);border-top:1px solid #23466b}
 .tabs .wrap{display:flex;gap:6px;overflow-x:auto;padding-top:10px;padding-bottom:10px;scrollbar-width:none}
 .tabs a{flex:none;padding:9px 16px;border-radius:999px;text-decoration:none;color:#b6c4d4;font-size:15px;border:1px solid #23466b}
-.tabs a:hover{color:#fff}
+
 .tabs a[aria-current]{background:var(--green);border-color:var(--green);color:#03291c;font-weight:700}
 
 .hero{background:var(--navy);color:#b6c4d4;padding:64px 0 72px}
@@ -145,7 +146,7 @@ footer a{color:#cbd5e1;text-decoration:none}
 .steps4{margin-top:36px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;list-style:none;padding:0;counter-reset:st}
 @media (max-width:860px){.steps4{grid-template-columns:1fr}}
 .steps4 li{counter-increment:st;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 20px 18px}
-.steps4 li::before{content:counter(st);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-family:"Barlow Condensed";font-size:19px;margin-bottom:10px}
+.steps4 li::before{content:counter(st);display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:700;font-family:"Barlow";font-size:19px;margin-bottom:10px}
 .steps4 b{display:block;color:var(--navy);margin-bottom:4px}.steps4 span{font-size:14.5px;color:var(--muted)}
 .split3{margin-top:30px;max-width:720px}
 .bar{display:flex;height:52px;border-radius:10px;overflow:hidden;font-weight:700;font-size:15px}
@@ -169,7 +170,43 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
 .apply2-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px;align-items:start}
 @media (max-width:900px){.apply2-grid{grid-template-columns:1fr}}
 
+
+@media (hover:hover) and (pointer:fine){
+.btn:hover{filter:brightness(1.06)}
+.nav ul a:hover{color:#fff;background:rgba(255,255,255,.08)}
+.tabs a:hover{color:#fff}
+}
+
+/* ---- 手機原生感與按壓回饋 ---- */
+:root{--ease-out:cubic-bezier(0.23,1,0.32,1)}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+a,button,summary,label,[role="button"]{touch-action:manipulation}
+button,.btn,summary,.chips span,.mbar a{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,select,textarea{font-size:16px}
+.btn,.mbar a{transition:transform 140ms var(--ease-out),filter 140ms ease}
+.btn:active,.mbar a:active{transform:scale(0.97)}
+.ind,.drop,.case,.sol,.lv{transition:border-color 160ms ease}
+.ind:active{transform:scale(0.985)}
+.wrap{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+
+/* ---- 能溢品牌視覺（冷調科技）覆寫 ---- */
+.btn{gap:8px}
+:root{--navy:#0B192C;--navy-2:#1E293B;--navy-3:#081221;--green:#00875A;--green-soft:#E6F4EE;--amber:#00875A;--bg:#F4F7F9;--ink-strong:#0B192C}
+.btn-amber{background:#00875A;color:#fff}
+.mbar .u{background:#00875A!important;color:#fff!important}
+:focus-visible{outline-color:#00875A}
+.hero h1 .cut,.hero-tag,.pf b.good,.formula .eq b,.crumb{color:#00C853}
+.hero-tag{border-color:rgba(0,200,83,.45)}
+.seg-you{background:#00C853;color:#04230f}
+.money-points div{border-left-color:#00C853}
+.hero,.money,.apply,.calc-out,.dash-sec,.apply2{position:relative}
+.hero::after,.apply::after,.apply2::after{content:"";position:absolute;right:-160px;top:-180px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(0,191,165,.08),transparent 65%);pointer-events:none}
+.hero,.apply,.apply2{overflow:hidden}
+.hero>.wrap,.apply>.wrap,.apply2>.wrap{position:relative;z-index:1}
+h1,h2,h3{letter-spacing:0;word-break:keep-all;overflow-wrap:anywhere}
+@media (hover:hover) and (pointer:fine){.btn-amber:hover{background:#00704A;filter:none}}
 </style>
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 
@@ -179,6 +216,7 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
     <ul>
       <li><a href="index.html#model">0 元方案</a></li>
       <li><a href="small.html" aria-current="page">小店家方案</a></li>
+      <li><a href="methods.html">節能方法</a></li>
       <li><a href="solution.html">產業方案</a></li>
       <li><a href="index.html#cases">案例</a></li>
       <li><a href="index.html#calc">電費試算</a></li>
@@ -194,7 +232,7 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
     <p class="crumb">小店家方案・月電費 1 萬元以上</p>
     <h1>店裡的電費，<br>不花一毛錢就能降</h1>
     <p class="sub">美髮、餐飲、診所、門市都適用。能溢免費幫你裝電力分析儀，代辦台電契約容量和電價方案調整。省下來的電費我們 7:3 分，沒省到不收錢。</p>
-    <div class="ctas"><a class="btn btn-amber" href="#apply">拍電費單，免費健檢</a><a class="btn btn-line" href="#how">看怎麼運作</a></div>
+    <div class="ctas"><a class="btn btn-amber" href="#apply">拍電費單，免費健檢 <span class="arr">→</span></a><a class="btn btn-line" href="#how">看怎麼運作</a></div>
   </div>
   <div class="facts">
     <div class="fact"><b class="num">NT$ 0</b><span>電力分析儀、安裝、台電申請規費，全部由能溢負擔</span></div>
@@ -204,8 +242,8 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
 </div></div></header>
 
 <section><div class="wrap">
-  <h2>店家電費常見的三個浪費</h2>
-  <div class="pains">
+  <h2 class="reveal">店家電費常見的三個浪費</h2>
+  <div class="pains" data-stagger>
     <article><h3>契約容量訂太高</h3><p>開店時抓的容量一直沒改，每個月都在為用不到的容量付基本電費。</p></article>
     <article><h3>夏天一超約就被罰</h3><p>冷氣、吹風機、烤箱同時開，15 分鐘平均一超過契約，超出部分要多付好幾倍。</p></article>
     <article><h3>電價方案選錯</h3><p>營業時間跟電價時段對不上，同樣的度數卻付比較貴的電價。</p></article>
@@ -213,20 +251,20 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
 </div></section>
 
 <section class="arch-sec"><div class="wrap">
-  <h2>我們幫你做三件事</h2>
-  <div class="lvr">
+  <h2 class="reveal">我們幫你做三件事</h2>
+  <div class="lvr" data-stagger>
     <article class="lv">
-      <svg viewBox="0 0 40 40" fill="none" stroke="#0F2942" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 30 13 20l7 5 7-12 8 7"/><path d="M5 12h30" stroke="#10B981" stroke-dasharray="3 3"/></svg>
+      <svg viewBox="0 0 40 40" fill="none" stroke="#0B192C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 30 13 20l7 5 7-12 8 7"/><path d="M5 12h30" stroke="#00C853" stroke-dasharray="3 3"/></svg>
       <h3>調整契約容量</h3>
       <p>用過去 12 個月的用電找出最省的容量。夏天偶爾小幅超約、全年反而更省時，我們會算給你看。</p>
     </article>
     <article class="lv">
-      <svg viewBox="0 0 40 40" fill="none" stroke="#0F2942" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="20" r="14"/><path d="M20 11v9l6 4" stroke="#10B981"/></svg>
+      <svg viewBox="0 0 40 40" fill="none" stroke="#0B192C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="20" cy="20" r="14"/><path d="M20 11v9l6 4" stroke="#00C853"/></svg>
       <h3>換對電價方案</h3>
       <p>依你的營業時間和實際用電時段，評估要不要改成時間電價，台電的申請由我們代辦。</p>
     </article>
     <article class="lv">
-      <svg viewBox="0 0 40 40" fill="none" stroke="#0F2942" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="6" width="26" height="28" rx="4"/><path d="M12 24l5-5 4 3 6-7" stroke="#10B981"/></svg>
+      <svg viewBox="0 0 40 40" fill="none" stroke="#0B192C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="6" width="26" height="28" rx="4"/><path d="M12 24l5-5 4 3 6-7" stroke="#00C853"/></svg>
       <h3>電力分析儀全天監控</h3>
       <p>即時看用電，快超約或設備異常會提醒。每月寄節電績效表，省多少一清二楚。</p>
     </article>
@@ -234,8 +272,8 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
 </div></section>
 
 <section id="how"><div class="wrap">
-  <h2>四步驟，你只要拍一張電費單</h2>
-  <ol class="steps4">
+  <h2 class="reveal">四步驟，你只要拍一張電費單</h2>
+  <ol class="steps4" data-stagger>
     <li><b>拍電費單</b><span>填下方表單、上傳最近一期台電電費單。</span></li>
     <li><b>免費健檢</b><span>工程師算出可以省多少，給你一份診斷報告。</span></li>
     <li><b>簽約安裝</b><span>1～2 週內安裝電力分析儀，同步向台電申請調整。</span></li>
@@ -244,8 +282,8 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
 </div></section>
 
 <section class="arch-sec"><div class="wrap">
-  <h2>省下來的錢怎麼分</h2>
-  <p class="lede">以每月省下 2,000 元為例。電費還是照舊繳給台電，能溢只從「省下來的部分」收服務費。</p>
+  <h2 class="reveal">省下來的錢怎麼分</h2>
+  <p class="lede reveal">以每月省下 2,000 元為例。電費還是照舊繳給台電，能溢只從「省下來的部分」收服務費。</p>
   <div class="split3">
     <div class="bar" role="img" aria-label="每月省下 2,000 元，店家保留 600 元，能溢 1,400 元"><div class="b-you" style="width:30%">你留 600 元</div><div class="b-us" style="width:70%">能溢服務費 1,400 元</div></div>
     <div class="legend2"><span>店家 30%：完全不用出錢，每月直接少付</span><span>能溢 70%：含設備、安裝、台電規費、線上分析與客服</span></div>
@@ -254,7 +292,7 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
 </div></section>
 
 <section><div class="wrap faq">
-  <h2>店家最常問</h2>
+  <h2 class="reveal">店家最常問</h2>
   <details><summary>安裝會影響營業嗎？</summary><div class="a">電力分析儀用夾式感測器，大多不用斷電或只需短暫停電，會先跟你約不影響營業的時間。</div></details>
   <details><summary>需要網路嗎？</summary><div class="a">需要。可以接店裡的 WiFi；店內沒有網路的話，我們會另外評估連線方式。</div></details>
   <details><summary>電費改由誰繳？</summary><div class="a">照舊由你直接繳給台電。能溢每月另外寄績效表和服務費發票，金額就是省下來那部分的 70%。</div></details>
@@ -299,5 +337,6 @@ form.mini input:focus,form.mini select:focus{outline:none;border-color:var(--gre
   <a class="u" href="#apply">拍電費單免費健檢</a>
 </div>
 
+<script src="assets/motion.js"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+/* 能溢官網共用動態與品牌微互動（搭配 motion.js） */
+:root{--ease-brand:cubic-bezier(.16,1,.3,1)}
+.motion-on .reveal{opacity:0;transform:translateY(12px);transition:opacity 600ms var(--ease-brand),transform 600ms var(--ease-brand)}
+.motion-on .reveal.in{opacity:1;transform:none}
+.motion-on svg .draw{transition:stroke-dashoffset 1.4s var(--ease-brand)}
+.motion-on svg .draw.drawn{stroke-dashoffset:0!important}
+.btn .arr{display:inline-block;transition:transform 200ms var(--ease-brand)}
+@media (hover:hover) and (pointer:fine){
+  .btn:hover .arr{transform:translateX(3px)}
+  .lift{transition:transform 200ms var(--ease-brand),border-color 200ms ease}
+  .lift:hover{transform:translateY(-2px);border-color:rgba(0,135,90,.4)}
+}
+@media (prefers-reduced-motion:reduce){
+  .reveal{opacity:1!important;transform:none!important}
+  svg .draw{stroke-dashoffset:0!important}
+}

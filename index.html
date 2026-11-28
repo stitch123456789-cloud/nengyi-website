@@ -2,7 +2,8 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0B192C">
 <title>能溢有限公司｜0 元 ESCO 空調節能分潤方案</title>
 <link rel="icon" type="image/svg+xml" href="/assets/logo-icon.svg">
 <link rel="apple-touch-icon" href="/assets/logo-icon-180.png">
@@ -12,13 +13,13 @@
 <meta property="og:description" content="全額出資建置、依實際節電分潤、IPMVP 國際標準驗證、期滿設備無償移轉。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Barlow+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Barlow:wght@500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --navy:#0F2942; --navy-2:#173a5c; --navy-3:#0a1d30;
-  --green:#10B981; --green-soft:#e7f8f1;
+  --navy:#0B192C; --navy-2:#173a5c; --navy-3:#0a1d30;
+  --green:#00C853; --green-soft:#e7f8f1;
   --amber:#F59E0B; --amber-ink:#5a3a00;
-  --bg:#F8FAFC; --ink:#334155; --ink-strong:#0F2942; --muted:#64748b; --line:#e2e8f0;
+  --bg:#F8FAFC; --ink:#334155; --ink-strong:#0B192C; --muted:#64748b; --line:#e2e8f0;
   --red:#e2554a;
   --wrap:1180px;
 }
@@ -32,7 +33,7 @@ h1,h2,h3{color:var(--ink-strong);line-height:1.3;margin:0}
 h2{font-size:clamp(26px,3.4vw,38px);font-weight:900;letter-spacing:.01em}
 h3{font-size:19px;font-weight:700}
 p{margin:0}
-.num{font-family:"Barlow Condensed","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.num{font-family:"Barlow","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums;letter-spacing:.01em}
 .wrap{max-width:var(--wrap);margin:0 auto;padding:0 24px}
 .lede{font-size:17px;color:var(--muted);max-width:640px;margin-top:12px}
 section{padding:96px 0}
@@ -40,8 +41,8 @@ section{padding:96px 0}
 :focus-visible{outline:3px solid var(--amber);outline-offset:2px;border-radius:4px}
 
 /* buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:16px;padding:14px 24px;border-radius:10px;border:2px solid transparent;cursor:pointer;text-decoration:none;transition:transform .15s,filter .15s}
-.btn:hover{filter:brightness(1.06);transform:translateY(-1px)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:inherit;font-weight:700;font-size:16px;padding:14px 24px;border-radius:10px;border:2px solid transparent;cursor:pointer;text-decoration:none;}
+
 .btn-amber{background:var(--amber);color:#1f1300}
 .btn-line{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
 .btn-line.dark{color:var(--navy);border-color:var(--navy)}
@@ -53,10 +54,10 @@ section{padding:96px 0}
 .brand{display:flex;align-items:center;text-decoration:none;color:#fff}
 .brand img{display:block;height:40px;width:auto}
 .brand b{font-size:19px;font-weight:900;line-height:1.1;display:block}
-.brand small{display:block;font-family:"Barlow Condensed";font-size:12px;letter-spacing:.08em;color:#94a8bd;line-height:1;font-weight:600}
+.brand small{display:block;font-family:"Barlow";font-size:12px;letter-spacing:.08em;color:#94a8bd;line-height:1;font-weight:600}
 .nav ul{display:flex;gap:4px;list-style:none;margin:0;padding:0;margin-left:auto}
 .nav ul a{display:block;padding:8px 12px;border-radius:8px;text-decoration:none;font-size:15px;color:#cbd5e1}
-.nav ul a:hover{color:#fff;background:rgba(255,255,255,.07)}
+
 @media (max-width:960px){.nav ul{display:none}.nav .btn-sm{margin-left:auto}}
 
 /* hero */
@@ -65,7 +66,7 @@ section{padding:96px 0}
 @media (max-width:960px){.hero-grid{grid-template-columns:1fr;gap:40px}}
 .hero-tag{display:inline-block;font-size:14px;color:var(--green);border:1px solid rgba(16,185,129,.45);padding:4px 12px;border-radius:999px;margin-bottom:22px}
 .hero h1{color:#fff;font-size:clamp(34px,4.6vw,54px);font-weight:900;line-height:1.22;letter-spacing:.01em}
-.hero h1 .cut{font-family:"Barlow Condensed",sans-serif;font-weight:700;font-size:1.18em;color:var(--green);white-space:nowrap}
+.hero h1 .cut{font-family:"Barlow",sans-serif;font-weight:700;font-size:1.18em;color:var(--green);white-space:nowrap}
 .hero .sub{margin-top:22px;font-size:17.5px;color:#b6c4d4;max-width:540px}
 .hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px}
 
@@ -131,7 +132,7 @@ section{padding:96px 0}
 .bar{height:48px;border-radius:8px;display:flex;overflow:hidden;font-size:14px;font-weight:700}
 .bar > div{display:flex;align-items:center;padding:0 12px;white-space:nowrap}
 .seg-pay{background:#3b5a7a;color:#fff}
-.seg-us{background:#1f4a72;color:#cfe1f3;border-left:2px dashed #0F2942}
+.seg-us{background:#1f4a72;color:#cfe1f3;border-left:2px dashed #0B192C}
 .seg-you{background:var(--green);color:#03291c}
 .money-note{margin-top:18px;font-size:13.5px;color:#7f95ad}
 .money-points{display:grid;gap:22px}
@@ -177,7 +178,7 @@ section{padding:96px 0}
 /* industries */
 .ind-grid{margin-top:36px;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:14px}
 .ind{display:flex;flex-direction:column;gap:8px;padding:22px 20px;border-radius:14px;background:#fff;border:1.5px solid var(--line);text-decoration:none;transition:border-color .15s}
-.ind:hover{border-color:var(--green)}
+
 .ind b{font-size:18px;color:var(--ink-strong)}
 .ind b::after{content:" ›";color:var(--green)}
 .ind span{font-size:14px;color:var(--muted);line-height:1.6}
@@ -259,11 +260,11 @@ form .fld label .req{color:var(--red);margin-left:2px}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
 .chips label{margin:0;font-weight:500;font-size:14.5px;color:var(--ink);cursor:pointer}
 .chips input{position:absolute;opacity:0;pointer-events:none}
-.chips span{display:inline-block;padding:8px 14px;border:1.5px solid #cbd5e1;border-radius:999px;transition:.15s}
+.chips span{display:inline-block;padding:8px 14px;border:1.5px solid #cbd5e1;border-radius:999px;transition:border-color 150ms ease,background-color 150ms ease}
 .chips input:checked + span{border-color:var(--green);background:var(--green-soft);color:#065f46;font-weight:700}
 .chips input:focus-visible + span{outline:3px solid var(--amber);outline-offset:2px}
 .fld label.drop{display:flex;margin:0;font-weight:400;align-items:center;gap:14px;border:2px dashed #cbd5e1;border-radius:12px;padding:16px;cursor:pointer;background:var(--bg)}
-.drop:hover{border-color:var(--green)}
+
 .drop input{position:absolute;opacity:0;width:1px;height:1px}
 .drop svg{width:34px;height:34px;flex:none}
 .drop b{display:block;color:var(--ink-strong)}
@@ -279,7 +280,7 @@ form .fld label .req{color:var(--red);margin-left:2px}
 footer{background:var(--navy-3);color:#8aa0b8;padding:48px 0 110px;font-size:14px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:24px 48px;justify-content:space-between}
 footer a{color:#cbd5e1;text-decoration:none}
-footer a:hover{color:#fff}
+
 footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 @media (min-width:761px){footer{padding-bottom:48px}}
 
@@ -291,7 +292,118 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   .mbar .l{background:var(--navy);color:#fff}
   .mbar .u{background:var(--amber);color:#1f1300}
 }
+
+@media (hover:hover) and (pointer:fine){
+.btn:hover{filter:brightness(1.06)}
+.nav ul a:hover{color:#fff;background:rgba(255,255,255,.07)}
+.ind:hover{border-color:var(--green)}
+.drop:hover{border-color:var(--green)}
+footer a:hover{color:#fff}
+}
+
+/* ---- 手機原生感與按壓回饋 ---- */
+:root{--ease-out:cubic-bezier(0.23,1,0.32,1)}
+html{-webkit-tap-highlight-color:transparent;-webkit-text-size-adjust:100%}
+a,button,summary,label,[role="button"]{touch-action:manipulation}
+button,.btn,summary,.chips span,.mbar a{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+input,select,textarea{font-size:16px}
+.btn,.mbar a{transition:transform 140ms var(--ease-out),filter 140ms ease}
+.btn:active,.mbar a:active{transform:scale(0.97)}
+.ind,.drop,.case,.sol,.lv{transition:border-color 160ms ease}
+.ind:active{transform:scale(0.985)}
+.wrap{padding-left:max(24px,env(safe-area-inset-left));padding-right:max(24px,env(safe-area-inset-right))}
+
+
+/* ---- 模擬案例 ---- */
+.sim-grid{margin-top:40px;display:grid;grid-template-columns:minmax(0,1fr);gap:20px}
+@media (max-width:1000px){.sim-grid{grid-template-columns:minmax(0,1fr)}}
+.sim{min-width:0}
+.sim{background:#fff;border:1px solid rgba(15,23,42,.08);border-radius:16px;padding:28px;display:grid;grid-template-columns:340px minmax(0,1fr);column-gap:32px;row-gap:18px}
+.sim header{grid-column:1}.sim-kpi{grid-column:1}.sim-scroll{grid-column:2;grid-row:1/3}
+@media (max-width:1000px){.sim{display:flex;flex-direction:column}}
+.sim header h3{font-size:22px;margin-top:6px}
+.sim header p{font-size:14px;color:var(--muted);margin-top:2px}
+.sim-tag{display:inline-block;font-size:12.5px;font-weight:700;color:#00875A;background:#E6F4EE;border-radius:999px;padding:2px 10px}
+.sim-kpi{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-content:start}
+.sim-kpi div.main{grid-column:1/-1}
+@media (max-width:1000px) and (min-width:561px){.sim-kpi{grid-template-columns:1.2fr 1fr 1fr}.sim-kpi div.main{grid-column:auto}}
+.sim-kpi div{background:var(--bg);border-radius:12px;padding:12px 14px}
+.sim-kpi small{display:block;font-size:12.5px;color:var(--muted)}
+.sim-kpi b{display:block;font-size:22px;color:var(--navy);line-height:1.3;white-space:nowrap}
+.sim-kpi div.main{background:var(--navy)} .sim-kpi div.main small{color:#9fb2c6} .sim-kpi div.main b{color:#00C853;font-size:26px}
+@media (max-width:560px){.sim-kpi{grid-template-columns:1fr}}
+.sim-scroll{overflow-x:auto}
+.sim table{width:100%;border-collapse:collapse;font-size:14px;min-width:520px}
+.sim th,.sim td{padding:9px 8px;border-bottom:1px solid rgba(15,23,42,.08);text-align:left;vertical-align:top}
+.sim th{font-size:12.5px;color:var(--muted);font-weight:500;background:var(--bg)}
+.sim td:nth-child(3),.sim td:nth-child(4),.sim th:nth-child(3),.sim th:nth-child(4){text-align:right;white-space:nowrap;font-family:"Barlow","Noto Sans TC",sans-serif;font-variant-numeric:tabular-nums}
+.sim td:first-child{font-weight:700;color:var(--navy);width:30%}
+.sim td:nth-child(2){color:var(--muted)}
+.sim tfoot td{font-weight:700;color:var(--navy);background:#E6F4EE;border-bottom:0}
+@media (max-width:600px){
+ .sim{padding:20px}
+ .sim table{min-width:0}
+ .sim thead{display:none}
+ .sim tr{display:grid;grid-template-columns:1fr auto;column-gap:12px;padding:10px 0;border-bottom:1px solid rgba(15,23,42,.08)}
+ .sim td{border:0;padding:2px 0}
+ .sim td:first-child{width:auto;grid-column:1/-1}
+ .sim td:nth-child(2){grid-column:1/-1;font-size:13.5px}
+ .sim td:nth-child(3){text-align:left}
+ .sim tfoot tr{background:#E6F4EE;border-radius:10px;padding:10px 12px;border:0;margin-top:8px}
+ .sim tfoot td{background:none}
+}
+.sim-note{margin-top:18px;font-size:13.5px;color:var(--muted);max-width:900px}
+.sim-note a{color:#00875A}
+/* ---- 專業術語 ---- */
+.terms{margin-top:44px}
+.terms>h3{font-size:20px;margin-bottom:16px}
+.term-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:14px}
+@media (max-width:900px){.term-grid{grid-template-columns:1fr}}
+.term{border:1px solid rgba(15,23,42,.08);border-radius:16px;padding:22px;background:#fff}
+.term:first-child{background:var(--navy);border-color:var(--navy)}
+.term:first-child h4{color:#fff}.term:first-child p{color:#b6c4d4}.term:first-child .en{color:#00C853}
+.term .en{font-family:"Barlow",sans-serif;font-size:13px;color:#00875A;font-weight:600;letter-spacing:.02em}
+.term h4{font-size:18px;color:var(--navy);margin:6px 0 8px;line-height:1.4}
+.term p{font-size:15px;color:var(--ink)}
+/* ---- 兩步式表單 ---- */
+.step{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--navy);font-size:16px;margin:0}
+.step span{white-space:nowrap;flex:none;font-size:12.5px;color:#fff;background:#00875A;border-radius:999px;padding:2px 10px;font-weight:700}
+form .hint{font-size:13.5px;color:var(--muted);margin:-4px 0 0}
+details.more{border:1px solid rgba(15,23,42,.1);border-radius:12px;padding:0 16px}
+details.more summary{list-style:none;cursor:pointer;padding:14px 0;font-weight:700;color:var(--navy);display:flex;align-items:center;gap:10px}
+details.more summary::-webkit-details-marker{display:none}
+details.more summary span{white-space:nowrap;flex:none;font-size:12.5px;color:var(--muted);border:1px solid rgba(15,23,42,.15);border-radius:999px;padding:1px 9px;font-weight:500}
+details.more summary::after{content:"";margin-left:auto;width:9px;height:9px;border-right:2px solid var(--navy);border-bottom:2px solid var(--navy);transform:rotate(45deg);transition:transform 200ms cubic-bezier(.16,1,.3,1)}
+details.more[open] summary::after{transform:rotate(-135deg)}
+.more-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;padding:4px 0 18px}
+.more-grid .full{grid-column:1/-1}
+@media (max-width:620px){.more-grid{grid-template-columns:1fr}}
+/* ---- 戰情室感：首屏格線、分潤長條長出 ---- */
+.hero{background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:48px 48px;background-color:var(--navy)}
+.motion-on .bill .bar>div{transform-origin:left;transform:scaleX(0);transition:transform 900ms cubic-bezier(.16,1,.3,1)}
+.motion-on .bill.in .bar>div{transform:scaleX(1)}
+.motion-on .bill.in .bill-row:nth-child(2) .bar>div{transition-delay:250ms}
+.motion-on .bill.in .bill-row:nth-child(3) .bar>div{transition-delay:500ms}
+.saved-label{font-family:"Noto Sans TC",sans-serif}
+
+/* ---- 能溢品牌視覺（冷調科技）覆寫 ---- */
+.btn{gap:8px}
+:root{--navy:#0B192C;--navy-2:#1E293B;--navy-3:#081221;--green:#00875A;--green-soft:#E6F4EE;--amber:#00875A;--bg:#F4F7F9;--ink-strong:#0B192C}
+.btn-amber{background:#00875A;color:#fff}
+.mbar .u{background:#00875A!important;color:#fff!important}
+:focus-visible{outline-color:#00875A}
+.hero h1 .cut,.hero-tag,.pf b.good,.formula .eq b,.crumb{color:#00C853}
+.hero-tag{border-color:rgba(0,200,83,.45)}
+.seg-you{background:#00C853;color:#04230f}
+.money-points div{border-left-color:#00C853}
+.hero,.money,.apply,.calc-out,.dash-sec,.apply2{position:relative}
+.hero::after,.apply::after,.apply2::after{content:"";position:absolute;right:-160px;top:-180px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(0,191,165,.08),transparent 65%);pointer-events:none}
+.hero,.apply,.apply2{overflow:hidden}
+.hero>.wrap,.apply>.wrap,.apply2>.wrap{position:relative;z-index:1}
+h1,h2,h3{letter-spacing:0;word-break:keep-all;overflow-wrap:anywhere}
+@media (hover:hover) and (pointer:fine){.btn-amber:hover{background:#00704A;filter:none}}
 </style>
+<link rel="stylesheet" href="assets/motion.css">
 </head>
 <body>
 
@@ -303,8 +415,8 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
     <ul>
       <li><a href="#model">0 元方案</a></li>
       <li><a href="small.html">小店家方案</a></li>
+      <li><a href="methods.html">節能方法</a></li>
       <li><a href="solution.html">產業方案</a></li>
-      <li><a href="#solutions">核心技術</a></li>
       <li><a href="#cases">案例</a></li>
       <li><a href="#calc">電費試算</a></li>
       <li><a href="#faq">常見問題</a></li>
@@ -321,7 +433,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
         <h1>企業 0 元出資，<br>AI 幫您把空調電費<br>直接砍掉 <span class="cut">15–30%</span></h1>
         <p class="sub">我們全額出資建置 AI 智慧監控、空調最佳化設備與契約容量調控系統。您不用動用一毛資本預算，只從「實際省下的電費」中按比例分潤。沒省到電，一毛不收。</p>
         <div class="ctas">
-          <a class="btn btn-amber" href="#apply">預約 0 元專案資格評估</a>
+          <a class="btn btn-amber" href="#apply">預約 0 元專案資格評估 <span class="arr">→</span></a>
           <a class="btn btn-line" href="#calc">1 分鐘試算年省電費</a>
         </div>
       </div>
@@ -329,12 +441,10 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
       <figure class="panel" style="margin:0" aria-labelledby="curveTitle">
         <div class="panel-head">
           <strong id="curveTitle">夏季尖峰日 24 小時需量曲線</strong>
-          <span>左右拖曳，比較導入前後</span>
+          <span>往下捲動，看 AI 削峰</span>
         </div>
         <div class="curve-box" id="curveBox">
           <svg id="curve" viewBox="0 0 560 300" role="img" aria-label="導入前需量曲線在下午兩次超過契約容量，導入後 AI 削峰，全天維持在契約容量以下"></svg>
-          <div class="handle" id="handle"></div>
-          <input type="range" id="curveRange" min="0" max="100" value="58" aria-label="導入前後比較滑桿">
         </div>
         <div class="legend">
           <span><i style="background:#ff8a80"></i>導入前</span>
@@ -362,9 +472,9 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 
 <section id="pain">
   <div class="wrap">
-    <h2>電價持續調漲，您的毛利正被空調悄悄吃掉</h2>
-    <p class="lede">在商辦、工廠、飯店與醫療場域，空調往往佔總用電量 40% 至 60%。多數企業正卡在這三個困境：</p>
-    <div class="pain-list">
+    <h2 class="reveal">電價持續調漲，您的毛利正被空調悄悄吃掉</h2>
+    <p class="lede reveal">在商辦、工廠、飯店與醫療場域，空調往往佔總用電量 40% 至 60%。多數企業正卡在這三個困境：</p>
+    <div class="pain-list" data-stagger>
       <article>
         <div class="stat num">40–60<small>%</small></div>
         <h3>電費年年漲，卻找不到耗電黑洞</h3>
@@ -386,9 +496,9 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 
 <section class="steps-sec" id="how">
   <div class="wrap">
-    <h2>不動用公司預算，四步驟啟動智慧節能</h2>
-    <p class="lede">您專注本業。出錢、建置、維運與節能成效，全部交給我們。</p>
-    <div class="steps">
+    <h2 class="reveal">不動用公司預算，四步驟啟動智慧節能</h2>
+    <p class="lede reveal">您專注本業。出錢、建置、維運與節能成效，全部交給我們。</p>
+    <div class="steps" data-stagger>
       <div class="step"><div class="dot num">1</div><h3>免費電費健檢</h3><p>提供近一年台電電費單，48 小時內由能源工程師完成診斷，算出節費潛力與契約容量優化空間。</p></div>
       <div class="step"><div class="dot num">2</div><h3>0 元全額建置</h3><p>確認合作後，由我方出資採購並安裝 AI 控制器、感測器與電力監控設備，不影響既有空調與產線排程。</p></div>
       <div class="step"><div class="dot num">3</div><h3>透明數據分潤</h3><p>上線當月開始省電。雙方透過雲端戰情室核對台電電表與驗證數據，僅從實際省下的電費按約拆帳。</p></div>
@@ -400,11 +510,11 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 
 <section class="money" id="model">
   <div class="wrap">
-    <h2>天下沒有白吃的午餐，但有雙贏的商業模式</h2>
-    <p class="lede">我們的獲利方式很單純：先幫您省錢，再從省下來的錢裡拆帳。這在國際上稱為 ESCO 節能效益分享型（Shared Savings）。</p>
+    <h2 class="reveal">天下沒有白吃的午餐，但有雙贏的商業模式</h2>
+    <p class="lede reveal">我們的獲利方式很單純：先幫您省錢，再從省下來的錢裡拆帳。這在國際上稱為 ESCO 節能效益分享型（Shared Savings）。</p>
     <div class="split">
       <div>
-        <div class="bill" aria-label="以月電費 100 萬元為例的分潤示意">
+        <div class="bill reveal" aria-label="以月電費 100 萬元為例的分潤示意">
           <div class="bill-row"><span>導入前<br>每月電費</span>
             <div class="bar"><div class="seg-pay" style="width:100%">100 萬元</div></div></div>
           <div class="bill-row"><span>合約期間<br>3–5 年</span>
@@ -414,9 +524,9 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
         </div>
         <p class="money-note">以月電費 100 萬元、導入後降至 80 萬元、雙方約定 7:3 分潤試算。實際分潤比例與年限依個案合約。</p>
       </div>
-      <div class="money-points">
-        <div><b>合約期間：每月多留 6 萬元現金</b><p>貴公司不出任何本金，每月省下的 20 萬元中，6 萬元直接留在帳上；我方取得 14 萬元，作為設備攤提、AI 系統維運與合理利潤。</p></div>
-        <div><b>合約期滿：一年 240 萬元全歸您</b><p>所有節能與監控硬體無償移轉，之後每月省下的 20 萬元 100% 歸貴公司。</p></div>
+      <div class="money-points" data-stagger>
+        <div><b>合約期間：每月多留 <span class="num" data-countup="6">6</span> 萬元現金</b><p>貴公司不出任何本金，每月省下的 20 萬元中，6 萬元直接留在帳上；我方取得 14 萬元，作為設備攤提、AI 系統維運與合理利潤。</p></div>
+        <div><b>合約期滿：一年 <span class="num" data-countup="240">240</span> 萬元全歸您</b><p>所有節能與監控硬體無償移轉，之後每月省下的 20 萬元 100% 歸貴公司。</p></div>
         <div><b>我們比任何人都在意成效</b><p>我們只能靠實際省電量回收成本，所以設備穩定度與長期節能效果，就是我們的收入。</p></div>
       </div>
     </div>
@@ -425,7 +535,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 
 <section id="compare">
   <div class="wrap">
-    <h2>傳統自費採購 vs. 0 元 ESCO 方案</h2>
+    <h2 class="reveal">傳統自費採購 vs. 0 元 ESCO 方案</h2>
     <div class="compare">
       <table>
         <thead><tr><th scope="col">比較項目</th><th scope="col">傳統自費採購節能設備</th><th scope="col">0 元 ESCO 節能分潤方案</th></tr></thead>
@@ -446,7 +556,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
     <div class="mv-grid">
       <div>
         <h2>怎麼證明電費是我們省的，<br>而不是今年天氣比較涼？</h2>
-        <p class="lede">分潤合作最怕帳算不清。我們不憑感覺估算，而是採用全球公認的量化驗證標準。</p>
+        <p class="lede reveal">分潤合作最怕帳算不清。我們不憑感覺估算，而是採用全球公認的量化驗證標準。</p>
         <div class="mv-list">
           <div><h3>採用 IPMVP 國際量測與驗證協議</h3><p>依「國際能源績效量測與驗證協議（IPMVP）」建立雙方認可的計算公式，也是金融機構與政府深度節能專案採用的標準。</p></div>
           <div><h3>氣溫、營業時數與稼動率動態校正</h3><p>以過去 12–24 個月用電建立基線，並把冷房度日（CDD）、稼動率或住房率納入校正，剔除氣候與淡旺季干擾。</p></div>
@@ -468,37 +578,57 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 
 <section id="solutions">
   <div class="wrap">
-    <h2>不只是換硬體，而是用 AI 算計每一度電</h2>
-    <div class="sol-grid">
+    <h2 class="reveal">不只是換硬體，而是用 AI 算計每一度電</h2>
+    <div class="sol-grid" data-stagger>
       <article class="sol">
-        <svg viewBox="0 0 40 40" fill="none" stroke="#0F2942" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="20" r="14"/><path d="M20 6v6M20 28v6M6 20h6M28 20h6"/><circle cx="20" cy="20" r="4" fill="#10B981" stroke="none"/></svg>
+        <svg viewBox="0 0 40 40" fill="none" stroke="#0B192C" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="20" cy="20" r="14"/><path d="M20 6v6M20 28v6M6 20h6M28 20h6"/><circle cx="20" cy="20" r="4" fill="#00C853" stroke="none"/></svg>
         <h3>AI 空調動態最佳化</h3>
         <p>結合室內外溫濕度、冰水主機負載與即時電價，自動微調冰水溫度、水泵與冷卻水塔頻率，在不犧牲體感舒適的前提下拉高能效。</p>
       </article>
       <article class="sol">
-        <svg viewBox="0 0 40 40" fill="none" stroke="#0F2942" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 30 13 20l7 5 7-12 8 7"/><path d="M5 14h30" stroke="#e2554a" stroke-dasharray="3 3"/></svg>
+        <svg viewBox="0 0 40 40" fill="none" stroke="#0B192C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 30 13 20l7 5 7-12 8 7"/><path d="M5 14h30" stroke="#e2554a" stroke-dasharray="3 3"/></svg>
         <h3>契約容量與時間電價精算</h3>
         <p>用歷史用電找出最省的契約容量與兩段式／三段式電價組合，搭配 15 分鐘需量預測與自動卸載，告別超約罰款。</p>
       </article>
       <article class="sol">
-        <svg viewBox="0 0 40 40" fill="none" stroke="#0F2942" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="7" width="30" height="20" rx="3"/><path d="M14 33h12M20 27v6"/><path d="M10 21l5-5 4 3 6-7" stroke="#10B981"/></svg>
+        <svg viewBox="0 0 40 40" fill="none" stroke="#0B192C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="7" width="30" height="20" rx="3"/><path d="M14 33h12M20 27v6"/><path d="M10 21l5-5 4 3 6-7" stroke="#00C853"/></svg>
         <h3>24 小時雲端能源戰情室</h3>
         <p>手機與電腦隨時掌握各樓層、各機台即時耗電與預估電費。設備異常或逼近需量上限時，即時推播 LINE 預警。</p>
       </article>
       <article class="sol">
-        <svg viewBox="0 0 40 40" fill="none" stroke="#0F2942" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5h13l6 6v24H11z"/><path d="M24 5v6h6"/><path d="M16 24c0-5 4-8 9-8-1 6-4 9-9 8z" stroke="#10B981"/></svg>
+        <svg viewBox="0 0 40 40" fill="none" stroke="#0B192C" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 5h13l6 6v24H11z"/><path d="M24 5v6h6"/><path d="M16 24c0-5 4-8 9-8-1 6-4 9-9 8z" stroke="#00C853"/></svg>
         <h3>ESG 減碳報表與補助申請</h3>
         <p>數據一鍵轉出符合 ISO 14064-1 與 ISO 50001 規範的用電與減碳報表，並協助對接政府深度節能補助。</p>
       </article>
+    </div>
+    <div class="terms">
+      <h3 class="reveal">背後的三個關鍵控制邏輯</h3>
+      <div class="term-grid" data-stagger>
+        <article class="term">
+          <p class="en">Chiller Sequencing &amp; COP Optimization</p>
+          <h4>冰水主機群控與 COP 最佳化</h4>
+          <p>依即時冷負載決定開幾台主機、先開哪一台，讓每台主機盡量運轉在 COP（性能係數）最高的負載區間，避免一台滿載、一台空轉。</p>
+        </article>
+        <article class="term">
+          <p class="en">Primary / Secondary Pumping, ΔP Control</p>
+          <h4>一次／二次泵變流量壓差控制（ΔP）</h4>
+          <p>以管路最不利點的壓差（ΔP）設定值控制二次泵變頻，冰水流量跟著末端需求走；再依控制閥開度動態下修壓差設定，減少泵浦白做的功。</p>
+        </article>
+        <article class="term">
+          <p class="en">Cooling Tower Wet-Bulb Reset</p>
+          <h4>冷卻水塔外氣濕球溫度追隨</h4>
+          <p>冷卻水能降到多低，取決於外氣濕球溫度。系統依濕球溫度加上趨近溫度（Approach）動態設定冷卻水溫，在主機省電與水塔風車耗電之間找最佳點。</p>
+        </article>
+      </div>
     </div>
   </div>
 </section>
 
 <section class="inds" id="industries">
   <div class="wrap">
-    <h2>依產業設計的節能方案</h2>
-    <p class="lede">每個產業的耗電結構不同，導入的項目也不同。選擇您的產業，看我們會怎麼做。</p>
-    <div class="ind-grid">
+    <h2 class="reveal">依產業設計的節能方案</h2>
+    <p class="lede reveal">每個產業的耗電結構不同，導入的項目也不同。選擇您的產業，看我們會怎麼做。</p>
+    <div class="ind-grid" data-stagger>
       <a class="ind" href="solution.html#factory"><b>製造工廠</b><span>冰水主機群控、水泵變頻、空壓機監測、需量控制</span></a>
       <a class="ind" href="solution.html#office"><b>商辦大樓</b><span>分區排程、午後需量削峰、管委會用電月報</span></a>
       <a class="ind" href="solution.html#hotel"><b>飯店旅宿</b><span>入住狀態連動、宴會廳預冷、冷熱能整合</span></a>
@@ -508,27 +638,66 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   </div>
 </section>
 
+<section id="methods-teaser" style="padding-top:0">
+  <div class="wrap">
+    <div class="reveal" style="display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;border:1px solid rgba(15,23,42,.08);border-radius:16px;padding:26px 28px;background:#fff">
+      <div><h3 style="font-size:20px">想先自己算算看？</h3><p style="color:var(--muted);margin-top:4px">契約容量、變頻、冰水溫度、LED、空壓機等 7 種節能方法，附公式、範例和線上試算。</p></div>
+      <a class="btn btn-amber" href="methods.html">看 7 種節能方法 <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
 <section class="cases" id="cases">
   <div class="wrap">
-    <h2>帳單看得見，數字會說話</h2>
-    <p class="lede">能溢正在建立首批合作案場。每一個案例都會公開以下三個數字，讓下一位老闆直接拿來比對自己的電費單。</p>
-    <div class="case-table">
-      <div class="case">
-        <div class="who"><b>導入前後電費</b><span>以台電電費單為準</span></div>
-        <div class="what">同月份、經氣溫與營業時數校正後的電費比較</div>
-        <div class="k"><small>年省電費</small><b class="num g">NT$ —</b></div>
-        <div class="k"><small>平均節電率</small><b class="num">— %</b></div>
-        <div class="k"><small>客戶出資</small><b class="num">NT$ 0</b></div>
-      </div>
+    <h2 class="reveal">工程模擬案例：兩個典型案場，完整試算給你看</h2>
+    <p class="lede reveal">首批合作案場的實際成果累積中。在那之前，我們用兩個典型案場建立模擬模型，把每一項假設、每一筆數字攤開，你可以直接拿自己的電費單對照。</p>
+    <div class="sim-grid" data-stagger>
+      <article class="sim">
+        <header><span class="sim-tag">模擬案場 A</span><h3>中部精密機械廠</h3><p>高壓用電・三班制・中央冰水系統・空壓機</p></header>
+        <div class="sim-kpi">
+          <div class="main"><small>每年可省</small><b class="num"><span data-countup="92.9" data-decimals="1">92.9</span> 萬元</b></div>
+          <div><small>契約容量</small><b class="num">800 → 720 kW</b></div>
+          <div><small>客戶分得 3 成</small><b class="num"><span data-countup="27.9" data-decimals="1">27.9</span> 萬元</b></div>
+        </div>
+        <div class="sim-scroll"><table>
+          <thead><tr><th>項目</th><th>模型假設</th><th>年節電</th><th>年節省</th></tr></thead>
+          <tbody>
+            <tr><td>契約容量最佳化</td><td>最高需量 770 kW；調至 720 kW，夏季 4 個月超約皆在 7% 以內</td><td>—</td><td>119,849 元</td></tr>
+            <tr><td>冰水主機群控＋出水溫度重設</td><td>主機平均 220 kW × 5,000 h；出水溫度升 2°C，每度 2.5%</td><td>55,000 度</td><td>220,000 元</td></tr>
+            <tr><td>冰水泵、冷卻水泵、水塔風車變頻</td><td>合計 60 kW × 5,000 h；轉速 85%（0.85³ ＝ 61.4%）</td><td>115,763 度</td><td>463,050 元</td></tr>
+            <tr><td>空壓機降壓</td><td>75 kW × 6,000 h；降 1 bar，約省 7%</td><td>31,500 度</td><td>126,000 元</td></tr>
+          </tbody>
+          <tfoot><tr><td>合計</td><td>年用電 324 萬度，節電約 6.2%</td><td>202,263 度</td><td>928,899 元</td></tr></tfoot>
+        </table></div>
+      </article>
+      <article class="sim">
+        <header><span class="sim-tag">模擬案場 B</span><h3>台北 12 層商辦大樓</h3><p>高壓用電・上班時段集中・中央空調・地下停車場</p></header>
+        <div class="sim-kpi">
+          <div class="main"><small>每年可省</small><b class="num"><span data-countup="119.1" data-decimals="1">119.1</span> 萬元</b></div>
+          <div><small>契約容量</small><b class="num">1,000 → 860 kW</b></div>
+          <div><small>客戶分得 3 成</small><b class="num"><span data-countup="35.7" data-decimals="1">35.7</span> 萬元</b></div>
+        </div>
+        <div class="sim-scroll"><table>
+          <thead><tr><th>項目</th><th>模型假設</th><th>年節電</th><th>年節省</th></tr></thead>
+          <tbody>
+            <tr><td>契約容量最佳化</td><td>最高需量 918 kW；調至 860 kW，夏季 4 個月超約皆在 7% 以內</td><td>—</td><td>241,822 元</td></tr>
+            <tr><td>冰水主機群控＋出水溫度重設</td><td>主機平均 300 kW × 2,800 h；出水溫度升 2°C，每度 2.5%</td><td>42,000 度</td><td>168,000 元</td></tr>
+            <tr><td>空調箱風車變頻</td><td>合計 90 kW × 3,000 h；轉速 85%（0.85³ ＝ 61.4%）</td><td>104,186 度</td><td>416,745 元</td></tr>
+            <tr><td>停車場與梯廳 LED</td><td>400 盞，62 W → 36 W，全天 24 小時</td><td>91,104 度</td><td>364,416 元</td></tr>
+          </tbody>
+          <tfoot><tr><td>合計</td><td>年用電 300 萬度，節電約 7.9%</td><td>237,290 度</td><td>1,190,983 元</td></tr></tfoot>
+        </table></div>
+      </article>
     </div>
-    <p class="tip" style="margin-top:20px">想成為首批合作案場？<a href="#apply" style="color:var(--navy);font-weight:700">上傳電費單</a>，我們優先安排工程師到場評估。</p>
+    <p class="sim-note reveal">以上為模擬案例，非實際客戶。依台電現行高壓經常契約費率（夏月 223.60、非夏月 166.90 元/瓩・月，超約 10% 以內 2 倍、以上 3 倍）與典型用電型態建立模型；節電量以平均電價 4 元/度換算，實際效益以現場量測與台電帳單為準。每一項的算法都在<a href="methods.html">節能方法</a>頁可以自己試算。</p>
+    <p class="tip" style="margin-top:16px">想知道你的場所算起來是多少？<a href="#apply" style="color:var(--navy);font-weight:700">上傳電費單</a>，我們用同一套模型替你試算。</p>
   </div>
 </section>
 
 <section id="calc">
   <div class="wrap">
-    <h2>1 分鐘試算：您的企業一年能省多少？</h2>
-    <p class="lede">選擇產業、拉到您的月平均電費，立即看到粗估節費潛力。精準數字請上傳電費單，由工程師出具診斷報告。</p>
+    <h2 class="reveal">1 分鐘試算：您的企業一年能省多少？</h2>
+    <p class="lede reveal">選擇產業、拉到您的月平均電費，立即看到粗估節費潛力。精準數字請上傳電費單，由工程師出具診斷報告。</p>
     <div class="calc-wrap">
       <div class="calc-in">
         <div class="fld">
@@ -570,7 +739,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
           <div><small>年減碳量</small><b class="num" id="oCo2">—</b></div>
         </div>
         <div class="tier" id="oTier"></div>
-        <a class="btn btn-amber" href="#apply" id="oCta">上傳電費單，取得精準診斷</a>
+        <a class="btn btn-amber" href="#apply" id="oCta">上傳電費單，取得精準診斷 <span class="arr">→</span></a>
         <p class="assume">試算假設：空調節電 15%–30%（取中間值 22.5%）、平均電價 4.0 元/度、電力排碳係數 0.474 kgCO₂e/度。未計入契約容量與時間電價優化效益，實際以現場診斷為準。</p>
       </div>
     </div>
@@ -580,9 +749,9 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 
 <section class="elig" id="eligibility">
   <div class="wrap">
-    <h2>哪些企業符合 0 元全額出資資格？</h2>
-    <p class="lede">我方需全額墊付建置與多年維運成本，為確保雙方都有理想回報，本專案優先開放給符合以下條件的場域：</p>
-    <div class="elig-grid">
+    <h2 class="reveal">哪些企業符合 0 元全額出資資格？</h2>
+    <p class="lede reveal">我方需全額墊付建置與多年維運成本，為確保雙方都有理想回報，本專案優先開放給符合以下條件的場域：</p>
+    <div class="elig-grid" data-stagger>
       <div><b>用電規模</b><span class="num">20 萬+</span><p>月平均電費，或契約容量 100 kW 以上</p></div>
       <div><b>設備類型</b><span class="num">中央空調</span><p>冰水主機、大型箱型冷氣或大型 VRV</p></div>
       <div><b>運轉時數</b><span class="num">10 小時+</span><p>空調每日平均運轉時數</p></div>
@@ -594,7 +763,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
 
 <section id="faq">
   <div class="wrap">
-    <h2>簽約前，老闆與廠務最常問的 6 個問題</h2>
+    <h2 class="reveal">簽約前，老闆與廠務最常問的 6 個問題</h2>
     <div class="faq-list">
       <details><summary>你們全額出錢建置，會不會用次級設備，或做到一半倒閉？</summary>
         <div class="a">在分潤模式下，只要設備故障停機，我們當月就收不到分潤，所以我們比客戶更重視耐用度與穩定性。我們採用工業級感測器與國際大廠變頻控制元件，合約期內提供免費保固與主動預警維護。</div></details>
@@ -617,11 +786,11 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
     <div class="apply-grid">
       <div>
         <h2>給我們一張電費單，<br>48 小時還您一份獲利方案</h2>
-        <p class="lede">填寫基本資料，啟動「0 元專案資格初審」。資料受保密協定保護，僅供節能評估使用。</p>
+        <p class="lede reveal">只要拍一張電費單、留一支手機，就能啟動「0 元專案資格初審」。資料僅供節能評估使用。</p>
         <div class="promise">
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>48 小時內出具診斷報告</b><p>《企業電費健檢與契約容量診斷報告》，評估完全免費。</p></div></div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>能源工程師親自評估</b><p>看過您的電費單與設備，再給數字，不給空泛承諾。</p></div></div>
-          <div><svg viewBox="0 0 24 24" fill="none" stroke="#10B981" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>沒有隱藏費用</b><p>評估後是否合作由您決定，不會有任何收費。</p></div></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>48 小時內出具診斷報告</b><p>《企業電費健檢與契約容量診斷報告》，評估完全免費。</p></div></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>能源工程師親自評估</b><p>看過您的電費單與設備，再給數字，不給空泛承諾。</p></div></div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="#00C853" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg><div><b>沒有隱藏費用</b><p>評估後是否合作由您決定，不會有任何收費。</p></div></div>
         </div>
         <p style="margin-top:32px;color:#9fb2c6">不想填表？直接來電或寫信：</p><p style="margin-top:6px"><a href="tel:0975463123" style="color:#fff;font-size:24px;font-weight:700;text-decoration:none" class="num">0975-463-123</a><br><a href="mailto:ericworks753@gmail.com" style="color:#cbd5e1">ericworks753@gmail.com</a></p>
       </div>
@@ -632,54 +801,57 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
         <input type="hidden" name="案件分級" id="fTierField" value="">
         <p class="hp"><label>請勿填寫 <input name="bot-field"></label></p>
 
-        <div class="fld"><label for="fCompany">公司名稱<span class="req">*</span></label><input type="text" id="fCompany" name="公司名稱" required autocomplete="organization"></div>
-        <div class="fld"><label for="fTax">統一編號<span class="req">*</span></label><input type="text" id="fTax" name="統一編號" required inputmode="numeric" pattern="[0-9]{8}" title="請輸入 8 碼數字" maxlength="8"></div>
-
-        <div class="fld"><label for="fIndustry">所屬產業<span class="req">*</span></label>
-          <select id="fIndustry" name="產業別" required>
-            <option value="" disabled selected>請選擇</option>
-            <option>製造工廠</option><option>商辦大樓</option><option>飯店旅宿</option><option>醫院診所</option><option>長照機構</option><option>連鎖零售</option><option>冷鏈倉儲</option><option>其他</option>
-          </select></div>
-        <div class="fld"><label for="fKw">目前契約容量（kW）</label><input type="number" id="fKw" name="契約容量kW" min="0" step="1" inputmode="numeric" placeholder="選填"></div>
-
-        <fieldset class="fld full" style="border:0;padding:0;margin:0">
-          <legend style="font-weight:700;color:var(--ink-strong);font-size:15px;margin-bottom:8px;padding:0">月平均電費<span class="req" style="color:var(--red)">*</span></legend>
-          <div class="chips" id="fBill">
-            <label><input type="radio" name="月平均電費" value="10萬以下" required><span>10 萬以下</span></label>
-            <label><input type="radio" name="月平均電費" value="10–20萬"><span>10–20 萬</span></label>
-            <label><input type="radio" name="月平均電費" value="20–50萬"><span>20–50 萬</span></label>
-            <label><input type="radio" name="月平均電費" value="50–100萬"><span>50–100 萬</span></label>
-            <label><input type="radio" name="月平均電費" value="100萬以上"><span>100 萬以上</span></label>
-          </div>
-        </fieldset>
-        <p class="form-tier full" id="fTier" role="status"></p>
-
-        <fieldset class="fld full" style="border:0;padding:0;margin:0">
-          <legend style="font-weight:700;color:var(--ink-strong);font-size:15px;margin-bottom:8px;padding:0">主要空調設備（可複選）</legend>
-          <div class="chips">
-            <label><input type="checkbox" name="空調設備" value="中央冰水主機"><span>中央冰水主機</span></label>
-            <label><input type="checkbox" name="空調設備" value="VRV 變頻多聯"><span>VRV 變頻多聯</span></label>
-            <label><input type="checkbox" name="空調設備" value="大型箱型冷氣"><span>大型箱型冷氣</span></label>
-            <label><input type="checkbox" name="空調設備" value="氣冷式冰水機"><span>氣冷式冰水機</span></label>
-            <label><input type="checkbox" name="空調設備" value="不清楚"><span>不清楚</span></label>
-          </div>
-        </fieldset>
-
+        <p class="step full"><span>第 1 步</span>只要電費單和手機，就能送出</p>
         <div class="fld full">
           <label class="drop" for="fFile">
-            <svg viewBox="0 0 34 34" fill="none" stroke="#10B981" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 23V8M11 14l6-6 6 6"/><path d="M6 22v4a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2v-4"/></svg>
-            <div><b id="fFileName">上傳最近一期台電電費單</b><span>JPG、PNG 或 PDF，手機可直接拍照（建議提供，可加快評估）</span></div>
+            <svg viewBox="0 0 34 34" fill="none" stroke="#00875A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 23V8M11 14l6-6 6 6"/><path d="M6 22v4a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2v-4"/></svg>
+            <div><b id="fFileName">上傳最近一期台電電費單</b><span>拍照或 PDF 都可以。電費單上已有公司名稱、契約容量和用電度數，不用另外填。</span></div>
             <input type="file" id="fFile" name="電費單" accept="image/*,.pdf">
           </label>
         </div>
+        <div class="fld"><label for="fPhone">手機<span class="req">*</span></label><input type="tel" id="fPhone" name="電話" required autocomplete="tel" inputmode="tel" placeholder="09xx-xxx-xxx"></div>
+        <div class="fld"><label for="fLine">LINE ID</label><input type="text" id="fLine" name="LINE_ID" placeholder="選填" autocapitalize="none"></div>
+        <p class="hint full">手邊沒有電費單也沒關係，先留手機，我們會告訴你怎麼從台電 App 下載。</p>
 
-        <div class="fld"><label for="fName">聯絡人姓名<span class="req">*</span></label><input type="text" id="fName" name="聯絡人" required autocomplete="name"></div>
-        <div class="fld"><label for="fTitle">職稱<span class="req">*</span></label><input type="text" id="fTitle" name="職稱" required placeholder="例如 廠務經理、財務長" autocomplete="organization-title"></div>
-        <div class="fld"><label for="fPhone">電話<span class="req">*</span></label><input type="tel" id="fPhone" name="電話" required autocomplete="tel"></div>
-        <div class="fld"><label for="fEmail">Email</label><input type="email" id="fEmail" name="email" autocomplete="email" placeholder="選填，報告可寄到這裡"></div>
-        <div class="fld"><label for="fLine">LINE ID</label><input type="text" id="fLine" name="LINE_ID" placeholder="選填"></div>
+        <details class="more full" id="fMore">
+          <summary><span>第 2 步（選填）</span>補充資料，評估會更快</summary>
+          <div class="more-grid">
+            <div class="fld"><label for="fName">怎麼稱呼您</label><input type="text" id="fName" name="聯絡人" autocomplete="name" placeholder="例如 王經理"></div>
+            <div class="fld"><label for="fCompany">公司名稱</label><input type="text" id="fCompany" name="公司名稱" autocomplete="organization"></div>
+            <div class="fld"><label for="fIndustry">所屬產業</label>
+              <select id="fIndustry" name="產業別">
+                <option value="">請選擇</option>
+                <option>製造工廠</option><option>商辦大樓</option><option>飯店旅宿</option><option>醫院診所</option><option>長照機構</option><option>連鎖零售</option><option>冷鏈倉儲</option><option>其他</option>
+              </select></div>
+            <div class="fld"><label for="fKw">目前契約容量（kW）</label><input type="number" id="fKw" name="契約容量kW" min="0" step="1" inputmode="numeric"></div>
+            <fieldset class="fld full" style="border:0;padding:0;margin:0">
+              <legend style="font-weight:700;color:var(--ink-strong);font-size:15px;margin-bottom:8px;padding:0">月平均電費</legend>
+              <div class="chips" id="fBill">
+                <label><input type="radio" name="月平均電費" value="10萬以下"><span>10 萬以下</span></label>
+                <label><input type="radio" name="月平均電費" value="10–20萬"><span>10–20 萬</span></label>
+                <label><input type="radio" name="月平均電費" value="20–50萬"><span>20–50 萬</span></label>
+                <label><input type="radio" name="月平均電費" value="50–100萬"><span>50–100 萬</span></label>
+                <label><input type="radio" name="月平均電費" value="100萬以上"><span>100 萬以上</span></label>
+              </div>
+            </fieldset>
+            <p class="form-tier full" id="fTier" role="status"></p>
+            <fieldset class="fld full" style="border:0;padding:0;margin:0">
+              <legend style="font-weight:700;color:var(--ink-strong);font-size:15px;margin-bottom:8px;padding:0">主要空調設備（可複選）</legend>
+              <div class="chips">
+                <label><input type="checkbox" name="空調設備" value="中央冰水主機"><span>中央冰水主機</span></label>
+                <label><input type="checkbox" name="空調設備" value="VRV 變頻多聯"><span>VRV 變頻多聯</span></label>
+                <label><input type="checkbox" name="空調設備" value="大型箱型冷氣"><span>大型箱型冷氣</span></label>
+                <label><input type="checkbox" name="空調設備" value="氣冷式冰水機"><span>氣冷式冰水機</span></label>
+                <label><input type="checkbox" name="空調設備" value="不清楚"><span>不清楚</span></label>
+              </div>
+            </fieldset>
+            <div class="fld"><label for="fTitle">職稱</label><input type="text" id="fTitle" name="職稱" placeholder="例如 廠務經理" autocomplete="organization-title"></div>
+            <div class="fld"><label for="fEmail">Email</label><input type="email" id="fEmail" name="email" autocomplete="email" autocapitalize="none" placeholder="報告可寄到這裡"></div>
+            <div class="fld"><label for="fTax">統一編號</label><input type="text" id="fTax" name="統一編號" inputmode="numeric" pattern="[0-9]{8}" title="請輸入 8 碼數字" maxlength="8"></div>
+          </div>
+        </details>
 
-        <button class="btn btn-amber full" type="submit" style="width:100%">送出資格初審，免費取得診斷報告</button>
+        <button class="btn btn-amber full" type="submit" style="width:100%">送出，48 小時內回覆 <span class="arr">→</span></button>
         <p class="privacy full">送出即表示同意我們就本次節能評估與您聯繫。資料僅供評估使用，不會提供給第三方。</p>
       </form>
     </div>
@@ -703,7 +875,7 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
       <li><a href="#calc">電費節能試算</a></li>
       <li><a href="tools/ac-calc.html">專業版節能計算工具</a></li>
     </ul>
-    <p style="width:100%;border-top:1px solid #1e3a57;padding-top:18px;margin-top:8px">© <span id="yr"></span> 能溢有限公司。首屏需量曲線為示意圖。</p>
+    <p style="width:100%;border-top:1px solid #1e3a57;padding-top:18px;margin-top:8px">© <span id="yr"></span> 能溢有限公司。首屏需量曲線為示意圖；案例區為工程模擬案例，非實際客戶。</p>
   </div>
 </footer>
 
@@ -712,56 +884,59 @@ footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
   <a class="u" href="#apply">上傳電費單免費評估</a>
 </div>
 
+<script src="assets/vendor/gsap.min.js"></script>
+<script src="assets/vendor/ScrollTrigger.min.js"></script>
+<script src="assets/vendor/lenis.min.js"></script>
 <script>
 document.getElementById('yr').textContent=new Date().getFullYear();
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fmt=(x,d=0)=>Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,maximumFractionDigits:d});
 
-/* ---------- Hero 需量曲線 ---------- */
+/* ---------- Hero 需量曲線：隨捲動繪製導入後曲線，並高亮削峰省下的區塊 ---------- */
 (function(){
   const svg=document.getElementById('curve'), W=560,H=300,L=40,R=12,T=16,B=34;
   const iw=W-L-R, ih=H-T-B, max=1200, contract=1000;
-  // 半小時一點，48 點（kW）
   const before=[520,500,490,480,475,470,470,480,500,540,600,680,780,860,930,970,990,1010,1040,1080,1120,1150,1170,1180,1140,1160,1190,1175,1120,1060,1020,980,940,900,860,820,780,740,700,660,630,600,580,560,550,540,530,525];
-  const after=before.map((v,i)=>{let a=v*0.86; if(a>930) a=930+(a-930)*0.15; return Math.round(a);});
+  const after=before.map(v=>{let a=v*0.86; if(a>930) a=930+(a-930)*0.15; return Math.round(a);});
   const x=i=>L+iw*i/(before.length-1), y=v=>T+ih*(1-v/max);
   const path=a=>a.map((v,i)=>(i?'L':'M')+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ');
-  const area=a=>path(a)+` L${x(a.length-1)} ${T+ih} L${L} ${T+ih}Z`;
+  const saved=path(before)+' '+after.map((v,i)=>[i,v]).reverse().map(([i,v])=>'L'+x(i).toFixed(1)+' '+y(v).toFixed(1)).join(' ')+'Z';
+  let peak=0; before.forEach((v,i)=>{if(v-after[i]>before[peak]-after[peak]) peak=i});
   let g='';
   [0,300,600,900,1200].forEach(v=>{g+=`<line x1="${L}" x2="${W-R}" y1="${y(v)}" y2="${y(v)}" stroke="#1d3b5a" stroke-width="1"/><text x="${L-6}" y="${y(v)+4}" fill="#6f86a0" font-size="11" text-anchor="end">${v}</text>`;});
   [0,6,12,18,24].forEach(h=>{g+=`<text x="${x(h*2>47?47:h*2)}" y="${H-12}" fill="#6f86a0" font-size="11" text-anchor="${h===0?'start':h===24?'end':'middle'}">${h}:00</text>`;});
   g+=`<text x="${L+4}" y="${y(max)+14}" fill="#6f86a0" font-size="11">kW</text>`;
-  svg.innerHTML=`<defs>
-      <clipPath id="cpB"><rect id="rB" x="0" y="0" width="${W}" height="${H}"/></clipPath>
-      <clipPath id="cpA"><rect id="rA" x="0" y="0" width="0" height="${H}"/></clipPath>
-      <clipPath id="over"><rect x="0" y="0" width="${W}" height="${y(contract)}"/></clipPath>
-    </defs>${g}
-    <g clip-path="url(#cpB)">
-      <path d="${area(before)}" fill="rgba(255,138,128,.12)"/>
-      <path d="${area(before)}" fill="rgba(226,85,74,.55)" clip-path="url(#over)"/>
-      <path d="${path(before)}" fill="none" stroke="#ff8a80" stroke-width="2.4" stroke-linejoin="round"/>
-    </g>
-    <g clip-path="url(#cpA)">
-      <path d="${area(after)}" fill="rgba(16,185,129,.16)"/>
-      <path d="${path(after)}" fill="none" stroke="#10B981" stroke-width="2.6" stroke-linejoin="round"/>
-    </g>
+  svg.innerHTML=`${g}
+    <path id="hvBefore" d="${path(before)}" fill="none" stroke="#ff8a80" stroke-width="2.4" stroke-linejoin="round" opacity=".9"/>
+    <path id="hvSaved" d="${saved}" fill="rgba(0,200,83,.28)" opacity="0"/>
+    <path id="hvAfter" d="${path(after)}" fill="none" stroke="#00C853" stroke-width="2.8" stroke-linejoin="round"/>
     <line x1="${L}" x2="${W-R}" y1="${y(contract)}" y2="${y(contract)}" stroke="#fff" stroke-width="1.6" stroke-dasharray="6 5"/>
-    <text x="${W-R}" y="${y(contract)-7}" fill="#fff" font-size="12" text-anchor="end">契約容量 1,000 kW</text>`;
-  const rng=document.getElementById('curveRange'), hd=document.getElementById('handle'), box=document.getElementById('curveBox');
-  const rA=svg.querySelector('#rA'), rB=svg.querySelector('#rB');
-  function set(p){
-    // p = 分界位置（%），左側顯示導入後，右側顯示導入前
-    const px=W*p/100;
-    rA.setAttribute('width',px); rB.setAttribute('x',px); rB.setAttribute('width',W-px);
-    hd.style.left=p+'%';
-  }
-  rng.addEventListener('input',()=>set(+rng.value));
-  set(+rng.value);
-  if(!reduce){ // 一次性開場：滑桿從 0 掃到 58%，讓訪客看懂可以拖曳
-    let t0=null; set(0);
-    const run=ts=>{ if(!t0)t0=ts; const k=Math.min((ts-t0)/1400,1), e=1-Math.pow(1-k,3); set(58*e); if(k<1) requestAnimationFrame(run); };
-    setTimeout(()=>requestAnimationFrame(run),500);
-  }
+    <text x="${W-R}" y="${y(contract)-7}" fill="#fff" font-size="12" text-anchor="end">契約容量 1,000 kW</text>
+    <g id="hvLabel" opacity="0"><rect x="${x(peak)-74}" y="${y(before[peak])-46}" width="148" height="26" rx="6" fill="#0B192C" stroke="rgba(0,200,83,.6)"/>
+    <text class="saved-label" x="${x(peak)}" y="${y(before[peak])-28}" fill="#00C853" font-size="12.5" font-weight="700" text-anchor="middle">削峰省下的電費</text></g>`;
+  const pA=document.getElementById('hvAfter'), pB=document.getElementById('hvBefore'), area=document.getElementById('hvSaved'), lab=document.getElementById('hvLabel');
+  const LA=pA.getTotalLength(), LB=pB.getTotalLength();
+  const done=()=>{pA.style.strokeDasharray='none';area.setAttribute('opacity',1);lab.setAttribute('opacity',1)};
+  if(reduce||!window.gsap||!window.ScrollTrigger){done();return;}
+  gsap.registerPlugin(ScrollTrigger);
+  gsap.set(pA,{strokeDasharray:LA,strokeDashoffset:LA});
+  gsap.fromTo(pB,{strokeDasharray:LB,strokeDashoffset:LB},{strokeDashoffset:0,duration:1.4,ease:'power2.out',delay:.3});
+  // 從頁面目前位置開始算：載入時一定是 0%，往下捲約 420px 畫完
+  const box=document.getElementById('curveBox');
+  const st=()=>Math.max(0,box.getBoundingClientRect().top+scrollY-innerHeight*.85);
+  gsap.timeline({scrollTrigger:{start:st,end:()=>st()+420,scrub:.6,invalidateOnRefresh:true}})
+    .to(pA,{strokeDashoffset:0,ease:'none',duration:1})
+    .to(area,{attr:{opacity:1},duration:.5},'-=.45')
+    .to(lab,{attr:{opacity:1},duration:.3},'-=.2');
+})();
+
+/* ---------- Lenis 平滑捲動：只在有滑鼠的電腦上啟用 ---------- */
+(function(){
+  if(reduce||!window.Lenis||!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  const lenis=new Lenis({duration:1.05,smoothWheel:true});
+  if(window.gsap&&window.ScrollTrigger){lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);}
+  else{const raf=t=>{lenis.raf(t);requestAnimationFrame(raf)};requestAnimationFrame(raf);}
+  document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const id=a.getAttribute('href');if(id.length<2)return;const el=document.querySelector(id);if(!el)return;e.preventDefault();lenis.scrollTo(el,{offset:-76});history.replaceState(null,'',id);}));
 })();
 
 /* ---------- 數字滾動 ---------- */
@@ -782,6 +957,15 @@ const fmt=(x,d=0)=>Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,max
   const ind=document.getElementById('cIndustry'), bill=document.getElementById('cBill'), out=document.getElementById('cBillOut');
   const PRICE=4.0, EF=0.474, RATE=0.225, YOU=0.3;
   const $=id=>document.getElementById(id);
+  const prev={};
+  // 數字跳動：從上一個值補間到新值（250ms）
+  function tween(key,to,render){
+    const from=prev[key]??to; prev[key]=to;
+    if(reduce||from===to){render(to);return;}
+    const t0=performance.now();
+    const step=now=>{const k=Math.min((now-t0)/250,1),e=1-Math.pow(1-k,3);render(from+(to-from)*e);if(k<1&&prev[key]===to)requestAnimationFrame(step);};
+    requestAnimationFrame(step);
+  }
   function calc(){
     const share=+ind.value, b=+bill.value; // 萬元/月
     $('cShareHint').textContent=`空調約佔總用電 ${Math.round(share*100)}%（產業平均估值）`;
@@ -789,11 +973,12 @@ const fmt=(x,d=0)=>Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,max
     const monthSave=b*share*RATE, yearSave=monthSave*12;      // 萬元
     const lo=b*share*0.15*12, hi=b*share*0.30*12;
     const kwh=yearSave*10000/PRICE, co2=kwh*EF/1000;
-    $('oYear').innerHTML=`${fmt(lo,0)}–${fmt(hi,0)}<span>萬元</span>`;
-    $('oMonthYou').textContent=fmt(monthSave*YOU,1)+' 萬元';
-    $('oMonthAll').textContent=fmt(monthSave,1)+' 萬元';
-    $('oKwh').textContent=fmt(kwh/10000,1)+' 萬度';
-    $('oCo2').textContent=fmt(co2,0)+' 公噸';
+    tween('lo',lo,v=>{prev.loShow=v;$('oYear').innerHTML=`${fmt(v,0)}–${fmt(prev.hiShow??hi,0)}<span>萬元</span>`});
+    tween('hi',hi,v=>{prev.hiShow=v;$('oYear').innerHTML=`${fmt(prev.loShow??lo,0)}–${fmt(v,0)}<span>萬元</span>`});
+    tween('you',monthSave*YOU,v=>$('oMonthYou').textContent=fmt(v,1)+' 萬元');
+    tween('all',monthSave,v=>$('oMonthAll').textContent=fmt(v,1)+' 萬元');
+    tween('kwh',kwh/10000,v=>$('oKwh').textContent=fmt(v,1)+' 萬度');
+    tween('co2',co2,v=>$('oCo2').textContent=fmt(v,0)+' 公噸');
     const t=$('oTier');
     if(b>=20){t.className='tier vip';t.textContent='符合 0 元全額出資的用電規模，可優先安排工程師評估。';}
     else{t.className='tier std';t.textContent='月電費未達 20 萬元，適合「小店家方案」：0 元安裝電力分析儀，代辦契約容量與電價調整。';}
@@ -806,6 +991,7 @@ const fmt=(x,d=0)=>Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,max
     const r=document.querySelector(`#fBill input[value="${map}"]`); if(r){r.checked=true; r.dispatchEvent(new Event('change',{bubbles:true}));}
     const fi=document.getElementById('fIndustry'); fi.value=ind.options[ind.selectedIndex].text;
     const kw=document.getElementById('cKw').value; if(kw) document.getElementById('fKw').value=kw;
+    document.getElementById('fMore').open=true;
   });
 })();
 
@@ -823,5 +1009,6 @@ const fmt=(x,d=0)=>Number(x).toLocaleString('zh-TW',{minimumFractionDigits:d,max
   f.addEventListener('change',()=>{ n.textContent=f.files[0]?'已選擇：'+f.files[0].name:'上傳最近一期台電電費單'; });
 })();
 </script>
+<script src="assets/motion.js"></script>
 </body>
 </html>
